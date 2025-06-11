@@ -1,0 +1,58 @@
+@import './utilities.css';
+@import './variables.css';
+@import 'tailwindcss';
+
+body {
+  background: var(--_theme---background);
+  color: var(--_theme---text);
+  font-family: var(--_typography---font--primary-family);
+  font-weight: 500;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--_theme---button-primary--background);
+  color: var(--_theme---button-primary--text);
+  border: 1px solid var(--_theme---button-primary--border);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius--main);
+  font-family: var(--_typography---font--primary-family);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--_theme---button-primary--background-hover);
+  color: var(--_theme---button-primary--text-hover);
+  border-color: var(--_theme---button-primary--border-hover);
+}
+
+.btn-secondary {
+  background-color: var(--_theme---button-secondary--background);
+  color: var(--_theme---button-secondary--text);
+  border: 1px solid var(--_theme---button-secondary--border);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius--main);
+  font-family: var(--_typography---font--primary-family);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--_theme---button-secondary--background-hover);
+  color: var(--_theme---button-secondary--text-hover);
+  border-color: var(--_theme---button-secondary--border-hover);
+}
+
+/* Text Line Height Trim */
+:is([class*='u-text-style-'], h1, h2, h3, h4, h5, h6, p)::before {
+  content: '';
+  display: table;
+  margin-bottom: calc(-0.5lh + var(--_text-style---trim-top));
+}
+:is([class*='u-text-style-'], h1, h2, h3, h4, h5, h6, p)::after {
+  content: '';
+  display: table;
+  margin-bottom: calc(-0.5lh + var(--_text-style---trim-bottom));
+}
