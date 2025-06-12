@@ -19,7 +19,7 @@
     border: var(--_btn--border-width) solid var(--_btn--border-color);
     padding: var(--size--0-75rem) var(--size--1-5rem);
     border-radius: var(--_btn--border-radius);
-    font-family: var(--_typography---font--primary-family);
+    font-family: var(--_typography---font-family--primary);
     transition: all 0.3s ease;
 
     &:hover {
@@ -46,7 +46,7 @@
     border: var(--_btn--border-width) solid var(--_btn--border-color);
     padding: var(--size--0-75rem) var(--size--1-5rem);
     border-radius: var(--_btn--border-radius);
-    font-family: var(--_typography---font--primary-family);
+    font-family: var(--_typography---font-family--primary);
     transition: all 0.3s ease;
 
     &:hover {

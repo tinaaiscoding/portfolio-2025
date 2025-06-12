@@ -28,9 +28,8 @@
   --color-transparent: var(--color--transparent);
 
   /* Font Families */
-  --font-primary: var(--_typography---font--primary-family), sans-serif;
-  --font-secondary:
-    var(--_typography---font--secondary-family), sans-serif;
+  --font-primary: var(--_typography---font-family--primary), sans-serif;
+  --font-secondary: var(--_typography---font-family--secondary), sans-serif;
 
   /* Font Sizes with Line Heights */
   --text-small: var(--_typography---font-size--text-small);
@@ -54,7 +53,7 @@
   --text-display: var(--_typography---font-size--display);
   --text-display--line-height: var(--_typography---line-height--display);
 
-  /* Fluid Spacing Scale*/
+  /* Fluid Sizes Scale */
   --spacing-fl-0: var(--size--0rem);
   --spacing-fl-0\.125: var(--size--0-125rem);
   --spacing-fl-0\.25: var(--size--0-25rem);
@@ -81,14 +80,14 @@
   --spacing-fl-16: var(--size--16rem);
 
   /* Fluid Section Spacing */
-  --spacing-section-fl-1: var(--_spacing---space--1);
-  --spacing-section-fl-2: var(--_spacing---space--2);
-  --spacing-section-fl-3: var(--_spacing---space--3);
-  --spacing-section-fl-4: var(--_spacing---space--4);
-  --spacing-section-fl-5: var(--_spacing---space--5);
-  --spacing-section-fl-6: var(--_spacing---space--6);
-  --spacing-section-fl-7: var(--_spacing---space--7);
-  --spacing-section-fl-8: var(--_spacing---space--8);
+  --spacing-fl-sp-1: var(--_spacing---space--1);
+  --spacing-fl-sp-2: var(--_spacing---space--2);
+  --spacing-fl-sp-3: var(--_spacing---space--3);
+  --spacing-fl-sp-4: var(--_spacing---space--4);
+  --spacing-fl-sp-5: var(--_spacing---space--5);
+  --spacing-fl-sp-6: var(--_spacing---space--6);
+  --spacing-fl-sp-7: var(--_spacing---space--7);
+  --spacing-fl-sp-8: var(--_spacing---space--8);
 
   /* Section Spacing */
   --spacing-section-none: var(--_spacing---section-space--none);
@@ -130,7 +129,7 @@
 body {
   background: var(--_theme---background);
   color: var(--_theme---text);
-  font-family: var(--_typography---font--primary-family);
+  font-family: var(--_typography---font-family--primary);
   font-weight: 500;
   transition:
     background 0.3s,
