@@ -13,7 +13,7 @@
   --color--transparent: transparent;
 }
 
-/* Base theme */
+/** Base theme **/
 :root {
   --_theme---border: var(--color--dark-faded);
   --_theme---background: var(--color--light);
@@ -21,7 +21,7 @@
   --_theme---text-faded: var(--color--dark-faded);
 }
 
-/* Dark theme */
+/** Dark theme **/
 .dark {
   --_theme---border: var(--color--light-faded);
   --_theme---background: var(--color--dark);
@@ -54,13 +54,13 @@
      Typography
   =============================== */
 
-/* Fonts */
+/** Fonts **/
 :root {
   --_typography---font--primary-family: var(--font-general-sans);
   --_typography---font--secondary-family: var(--font-cabinet-grotesk);
 }
 
-/* Font Weights */
+/** Font Weights **/
 :root {
   --_typography---font--primary-medium: 500;
   --_typography---font--primary-semibold: 600;
@@ -68,7 +68,7 @@
   --_typography---font--secondary-black: 900;
 }
 
-/* Line Heights */
+/** Line Heights **/
 :root {
   --_typography---line-height--1: 1;
   --_typography---line-height--1-1: 1.1;
@@ -76,13 +76,13 @@
   --_typography---line-height--1-5: 1.5;
 }
 
-/* Letter Spacing */
+/** Letter Spacing **/
 :root {
   --_typography---letter-spacing--0em: 0em;
   --_typography---letter-spacing--neg-0-03em: -0.03em;
 }
 
-/* Font Sizes */
+/** Font Sizes **/
 /* !! Replace with fluid sizes !! */
 :root {
   --_typography---font-size--text-small: 0.875rem;
@@ -97,7 +97,7 @@
   --_typography---font-size--h6: 1rem;
 }
 
-/* Font Sizes line height */
+/** Font Sizes line height **/
 :root {
   --_typography---line-height--text-small: var(
     --_typography---line-height--1-5
@@ -115,8 +115,9 @@
   --_typography---line-height--h6: var(--_typography---line-height--1-1);
 }
 
-/* Text Trims (Trim excessive whitespace from font) */
-/** https://line-height-trim.webflow.io/ **/
+/** Text Trims **/
+/* (Trim excessive whitespace from font) */
+/* https://line-height-trim.webflow.io/ */
 :root {
   --_typography---font--primary-trim-top: 0.34em;
   --_typography---font--primary-trim-bottom: 0.38em;
@@ -127,7 +128,7 @@
 /* ===============================
      Spacing Scale
   =============================== */
-/* Fluid sizes */
+/** Fluid sizes **/
 /* !! Replace with fluid sizes !! */
 :root {
   --size--0rem: 0rem;
@@ -164,7 +165,7 @@
   --size--16rem: 16rem;
 }
 
-/* Section Spacing */
+/** Section Spacing **/
 /* !! Replace with fluid sizes !! */
 :root {
   --_spacing---space--1: 0.5rem;
@@ -243,7 +244,7 @@
 /* ===============================
      Buttons
   =============================== */
-/* Base theme buttons */
+/** Base theme buttons **/
 :root {
   --_theme---button-primary--background: var(--color--brand-main);
   --_theme---button-primary--border: var(--color--brand-main);
@@ -260,7 +261,7 @@
   --_theme---button-secondary--text-hover: var(--color--brand-light);
 }
 
-/* Dark theme buttons */
+/** Dark theme buttons **/
 .dark {
   --_theme---button-primary--background: var(--color--brand-main);
   --_theme---button-primary--border: var(--color--brand-main);

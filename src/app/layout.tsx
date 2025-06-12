@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import './css/globals.css';
+import './styles/globals.css';
 
 const cabinetGrotesk = localFont({
   src: [
@@ -54,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className={`dark ${fonts}`}>
+    <html lang='en' className={`${fonts}`}>
       <body className='antialiased'>{children}</body>
     </html>
   );

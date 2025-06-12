@@ -1,0 +1,147 @@
+@import 'tailwindcss';
+@import './utilities.css';
+@import './variables.css';
+@import './components/buttons.css';
+
+/* Dark mode using class strategy */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Tailwind Theme Configuration */
+@theme {
+  /* Border Radius */
+  --radius-sm: var(--radius--small);
+  --radius-DEFAULT: var(--radius--main);
+  --radius-full: var(--radius--round);
+
+  /* Border Width */
+  --border-width-DEFAULT: var(--border-width--main);
+
+  /* Color Palette */
+  --color-brand-main: var(--color--brand-main);
+  --color-brand-dark: var(--color--brand-dark);
+  --color-brand-light: var(--color--brand-light);
+  --color-brand-secondary: var(--color--brand-secondary);
+  --color-dark: var(--color--dark);
+  --color-dark-faded: var(--color--dark-faded);
+  --color-light: var(--color--light);
+  --color-light-faded: var(--color--light-faded);
+  --color-transparent: var(--color--transparent);
+
+  /* Font Families */
+  --font-family-primary: var(--_typography---font--primary-family), sans-serif;
+  --font-family-secondary:
+    var(--_typography---font--secondary-family), sans-serif;
+
+  /* Font Sizes with Line Heights */
+  --font-size-small: var(--_typography---font-size--text-small);
+  --font-size-small--line-height: var(--_typography---line-height--text-small);
+
+  --font-size-main: var(--_typography---font-size--text-main);
+  --font-size-main--line-height: var(--_typography---line-height--text-main);
+
+  --font-size-large: var(--_typography---font-size--text-large);
+  --font-size-large--line-height: var(--_typography---line-height--text-large);
+
+  --font-size-h1: var(--_typography---font-size--h1);
+  --font-size-h1--line-height: var(--_typography---line-height--h1);
+
+  --font-size-h2: var(--_typography---font-size--h2);
+  --font-size-h2--line-height: var(--_typography---line-height--h2);
+
+  --font-size-h3: var(--_typography---font-size--h3);
+  --font-size-h3--line-height: var(--_typography---line-height--h3);
+
+  --font-size-h4: var(--_typography---font-size--h4);
+  --font-size-h4--line-height: var(--_typography---line-height--h4);
+
+  --font-size-h5: var(--_typography---font-size--h5);
+  --font-size-h5--line-height: var(--_typography---line-height--h5);
+
+  --font-size-h6: var(--_typography---font-size--h6);
+  --font-size-h6--line-height: var(--_typography---line-height--h6);
+
+  --font-size-display: var(--_typography---font-size--display);
+  --font-size-display--line-height: var(--_typography---line-height--display);
+
+  /* Fluid Spacing Scale*/
+  --spacing-fl-0: var(--size--0rem);
+  --spacing-fl-0\.125: var(--size--0-125rem);
+  --spacing-fl-0\.25: var(--size--0-25rem);
+  --spacing-fl-0\.375: var(--size--0-375rem);
+  --spacing-fl-0\.5: var(--size--0-5rem);
+  --spacing-fl-0\.75: var(--size--0-75rem);
+  --spacing-fl-1: var(--size--1rem);
+  --spacing-fl-1\.25: var(--size--1-25rem);
+  --spacing-fl-1\.5: var(--size--1-5rem);
+  --spacing-fl-2: var(--size--2rem);
+  --spacing-fl-2\.5: var(--size--2-5rem);
+  --spacing-fl-3: var(--size--3rem);
+  --spacing-fl-3\.5: var(--size--3-5rem);
+  --spacing-fl-4: var(--size--4rem);
+  --spacing-fl-4\.5: var(--size--4-5rem);
+  --spacing-fl-5: var(--size--5rem);
+  --spacing-fl-6: var(--size--6rem);
+  --spacing-fl-7: var(--size--7rem);
+  --spacing-fl-8: var(--size--8rem);
+  --spacing-fl-9: var(--size--9rem);
+  --spacing-fl-10: var(--size--10rem);
+  --spacing-fl-12: var(--size--12rem);
+  --spacing-fl-14: var(--size--14rem);
+  --spacing-fl-16: var(--size--16rem);
+
+  /* Fluid Section Spacing */
+  --spacing-section-fl-1: var(--_spacing---space--1);
+  --spacing-section-fl-2: var(--_spacing---space--2);
+  --spacing-section-fl-3: var(--_spacing---space--3);
+  --spacing-section-fl-4: var(--_spacing---space--4);
+  --spacing-section-fl-5: var(--_spacing---space--5);
+  --spacing-section-fl-6: var(--_spacing---space--6);
+  --spacing-section-fl-7: var(--_spacing---space--7);
+  --spacing-section-fl-8: var(--_spacing---space--8);
+
+  /* Section Spacing */
+  --spacing-section-none: var(--_spacing---section-space--none);
+  --spacing-section-small: var(--_spacing---section-space--small);
+  --spacing-section-main: var(--_spacing---section-space--main);
+  --spacing-section-large: var(--_spacing---section-space--large);
+  --spacing-section-page-top: var(--_spacing---section-space--page-top);
+
+  /* Column Widths */
+  --width-col-1: var(--column-width--1);
+  --width-col-2: var(--column-width--2);
+  --width-col-3: var(--column-width--3);
+  --width-col-4: var(--column-width--4);
+  --width-col-5: var(--column-width--5);
+  --width-col-6: var(--column-width--6);
+  --width-col-7: var(--column-width--7);
+  --width-col-8: var(--column-width--8);
+  --width-col-9: var(--column-width--9);
+  --width-col-10: var(--column-width--10);
+  --width-col-11: var(--column-width--11);
+  --width-col-12: var(--column-width--12);
+
+  /* Column + Margin Widths */
+  --width-col-mar-1: var(--column-margin--1);
+  --width-col-mar-2: var(--column-margin--2);
+  --width-col-mar-3: var(--column-margin--3);
+  --width-col-mar-4: var(--column-margin--4);
+  --width-col-mar-5: var(--column-margin--5);
+  --width-col-mar-6: var(--column-margin--6);
+  --width-col-mar-7: var(--column-margin--7);
+  --width-col-mar-8: var(--column-margin--8);
+  --width-col-mar-9: var(--column-margin--9);
+  --width-col-mar-10: var(--column-margin--10);
+  --width-col-mar-11: var(--column-margin--11);
+  --width-col-mar-12: var(--column-margin--12);
+}
+
+/* Base Body Styles */
+body {
+  background: var(--_theme---background);
+  color: var(--_theme---text);
+  font-family: var(--_typography---font--primary-family);
+  font-weight: 500;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
