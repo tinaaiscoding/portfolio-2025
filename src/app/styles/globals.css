@@ -28,40 +28,31 @@
   --color-transparent: var(--color--transparent);
 
   /* Font Families */
-  --font-family-primary: var(--_typography---font--primary-family), sans-serif;
-  --font-family-secondary:
+  --font-primary: var(--_typography---font--primary-family), sans-serif;
+  --font-secondary:
     var(--_typography---font--secondary-family), sans-serif;
 
   /* Font Sizes with Line Heights */
-  --font-size-small: var(--_typography---font-size--text-small);
-  --font-size-small--line-height: var(--_typography---line-height--text-small);
-
-  --font-size-main: var(--_typography---font-size--text-main);
-  --font-size-main--line-height: var(--_typography---line-height--text-main);
-
-  --font-size-large: var(--_typography---font-size--text-large);
-  --font-size-large--line-height: var(--_typography---line-height--text-large);
-
-  --font-size-h1: var(--_typography---font-size--h1);
-  --font-size-h1--line-height: var(--_typography---line-height--h1);
-
-  --font-size-h2: var(--_typography---font-size--h2);
-  --font-size-h2--line-height: var(--_typography---line-height--h2);
-
-  --font-size-h3: var(--_typography---font-size--h3);
-  --font-size-h3--line-height: var(--_typography---line-height--h3);
-
-  --font-size-h4: var(--_typography---font-size--h4);
-  --font-size-h4--line-height: var(--_typography---line-height--h4);
-
-  --font-size-h5: var(--_typography---font-size--h5);
-  --font-size-h5--line-height: var(--_typography---line-height--h5);
-
-  --font-size-h6: var(--_typography---font-size--h6);
-  --font-size-h6--line-height: var(--_typography---line-height--h6);
-
-  --font-size-display: var(--_typography---font-size--display);
-  --font-size-display--line-height: var(--_typography---line-height--display);
+  --text-small: var(--_typography---font-size--text-small);
+  --text-small--line-height: var(--_typography---line-height--text-small);
+  --text-main: var(--_typography---font-size--text-main);
+  --text-main--line-height: var(--_typography---line-height--text-main);
+  --text-large: var(--_typography---font-size--text-large);
+  --text-large--line-height: var(--_typography---line-height--text-large);
+  --text-h1: var(--_typography---font-size--h1);
+  --text-h1--line-height: var(--_typography---line-height--h1);
+  --text-h2: var(--_typography---font-size--h2);
+  --text-h2--line-height: var(--_typography---line-height--h2);
+  --text-h3: var(--_typography---font-size--h3);
+  --text-h3--line-height: var(--_typography---line-height--h3);
+  --text-h4: var(--_typography---font-size--h4);
+  --text-h4--line-height: var(--_typography---line-height--h4);
+  --text-h5: var(--_typography---font-size--h5);
+  --text-h5--line-height: var(--_typography---line-height--h5);
+  --text-h6: var(--_typography---font-size--h6);
+  --text-h6--line-height: var(--_typography---line-height--h6);
+  --text-display: var(--_typography---font-size--display);
+  --text-display--line-height: var(--_typography---line-height--display);
 
   /* Fluid Spacing Scale*/
   --spacing-fl-0: var(--size--0rem);
@@ -121,18 +112,18 @@
   --width-col-12: var(--column-width--12);
 
   /* Column + Margin Widths */
-  --width-col-mar-1: var(--column-margin--1);
-  --width-col-mar-2: var(--column-margin--2);
-  --width-col-mar-3: var(--column-margin--3);
-  --width-col-mar-4: var(--column-margin--4);
-  --width-col-mar-5: var(--column-margin--5);
-  --width-col-mar-6: var(--column-margin--6);
-  --width-col-mar-7: var(--column-margin--7);
-  --width-col-mar-8: var(--column-margin--8);
-  --width-col-mar-9: var(--column-margin--9);
-  --width-col-mar-10: var(--column-margin--10);
-  --width-col-mar-11: var(--column-margin--11);
-  --width-col-mar-12: var(--column-margin--12);
+  --width-col-m-1: var(--column-margin--1);
+  --width-col-m-2: var(--column-margin--2);
+  --width-col-m-3: var(--column-margin--3);
+  --width-col-m-4: var(--column-margin--4);
+  --width-col-m-5: var(--column-margin--5);
+  --width-col-m-6: var(--column-margin--6);
+  --width-col-m-7: var(--column-margin--7);
+  --width-col-m-8: var(--column-margin--8);
+  --width-col-m-9: var(--column-margin--9);
+  --width-col-m-10: var(--column-margin--10);
+  --width-col-m-11: var(--column-margin--11);
+  --width-col-m-12: var(--column-margin--12);
 }
 
 /* Base Body Styles */
