@@ -1,0 +1,53 @@
+.primary {
+  --_btn--bg-color: var(--_theme---button-primary--background);
+  --_btn--font-color: var(--_theme---button-primary--text);
+  --_btn--border-width: var(--border-width--main);
+  --_btn--border-color: var(--_theme---button-primary--border);
+  --_btn--border-radius: var(--radius--main);
+
+  /**  Hover State Variables **/
+  --_btn--bg-color-hover: var(--_theme---button-primary--background-hover);
+  --_btn--font-color-hover: var(--_theme---button-primary--text-hover);
+  --_btn--border-color-hover: var(--_theme---button-primary--border-hover);
+
+  background-color: var(--_btn--bg-color);
+  color: var(--_btn--font-color);
+  border: var(--_btn--border-width) solid var(--_btn--border-color);
+  padding: var(--size--0-75rem) var(--size--1-5rem);
+  border-radius: var(--_btn--border-radius);
+  font-family: var(--_typography---font-family--primary);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--_btn--bg-color-hover);
+    color: var(--_btn--font-color-hover);
+    border-color: var(--_btn--border-color-hover);
+  }
+}
+
+.secondary {
+  --_btn--bg-color: var(--_theme---button-secondary--background);
+  --_btn--font-color: var(--_theme---button-secondary--text);
+  --_btn--border-width: var(--border-width--main);
+  --_btn--border-color: var(--_theme---button-secondary--border);
+  --_btn--border-radius: var(--radius--main);
+
+  /** Hover State Variables **/
+  --_btn--bg-color-hover: var(--_theme---button-secondary--background-hover);
+  --_btn--font-color-hover: var(--_theme---button-secondary--text-hover);
+  --_btn--border-color-hover: var(--_theme---button-secondary--border-hover);
+
+  background-color: var(--_btn--bg-color);
+  color: var(--_btn--font-color);
+  border: var(--_btn--border-width) solid var(--_btn--border-color);
+  padding: var(--size--0-75rem) var(--size--1-5rem);
+  border-radius: var(--_btn--border-radius);
+  font-family: var(--_typography---font-family--primary);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--_btn--bg-color-hover);
+    color: var(--_btn--font-color-hover);
+    border-color: var(--_btn--border-color-hover);
+  }
+}

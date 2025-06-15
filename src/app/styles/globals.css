@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @import './utilities.css';
 @import './variables.css';
-@import './components/buttons.css';
 
 /* Dark mode using class strategy */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -126,12 +125,14 @@
 }
 
 /* Base Body Styles */
-body {
-  background: var(--_theme---background);
-  color: var(--_theme---text);
-  font-family: var(--_typography---font-family--primary);
-  font-weight: 500;
-  transition:
-    background 0.3s,
-    color 0.3s;
+@layer base {
+  body {
+    background: var(--_theme---background);
+    color: var(--_theme---text);
+    font-family: var(--_typography---font-family--primary);
+    font-weight: 500;
+    transition:
+      background 0.3s,
+      color 0.3s;
+  }
 }

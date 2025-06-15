@@ -1,8 +1,12 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import localFont from 'next/font/local';
 import './styles/globals.css';
 
-import GridOverlay from './designComponents/GridOverlay';
+const GridOverlay =
+  process.env.NODE_ENV === 'development'
+    ? dynamic(() => import('./devTools/components/GridOverlay'))
+    : () => null;
 
 const cabinetGrotesk = localFont({
   src: [
