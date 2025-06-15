@@ -1,6 +1,10 @@
+import Button from './components/ui/Button/Button';
 
 export default function Home() {
   return (
-    <div>Tina's Portfolio</div>
+    <div className='u-container'>
+      Tina's Portfolio
+      <Button>Hello</Button>
+    </div>
   );
 }

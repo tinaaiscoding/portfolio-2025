@@ -19,14 +19,21 @@
   --_theme---background: var(--color--light);
   --_theme---text: var(--color--dark);
   --_theme---text-faded: var(--color--dark-faded);
-}
 
-/** Dark theme **/
-.dark {
-  --_theme---border: var(--color--light-faded);
-  --_theme---background: var(--color--dark);
-  --_theme---text: var(--color--light);
-  --_theme---text-faded: var(--color--light-faded);
+  /** Buttons **/
+  --_theme---button-primary--background: var(--color--brand-main);
+  --_theme---button-primary--border: var(--color--brand-main);
+  --_theme---button-primary--text: var(--color--brand-light);
+  --_theme---button-primary--background-hover: var(--color--brand-dark);
+  --_theme---button-primary--border-hover: var(--color--brand-dark);
+  --_theme---button-primary--text-hover: var(--color--brand-light);
+
+  --_theme---button-secondary--background: var(--color--transparent);
+  --_theme---button-secondary--border: var(--color--dark-faded);
+  --_theme---button-secondary--text: var(--color--brand-dark);
+  --_theme---button-secondary--background-hover: var(--color--brand-dark);
+  --_theme---button-secondary--border-hover: var(--color--brand-dark);
+  --_theme---button-secondary--text-hover: var(--color--brand-light);
 }
 
 /* ===============================
@@ -35,7 +42,7 @@
 :root {
   --site--max-width: min(var(--site--width), 100vw);
   --site--width: 90rem;
-  --site--margin: 1rem; /* !! Replace with fluid sizes !! */
+  --site--margin: clamp(1rem, 0.286rem + 3.57vw, 3.5rem);
   --site--gutter: 1.25rem;
   --site--column-count: 12;
   --site--gutter-total: calc(
@@ -84,18 +91,25 @@
 }
 
 /** Font Sizes **/
-/* !! Replace with fluid sizes !! */
 :root {
-  --_typography---font-size--text-small: 0.875rem;
-  --_typography---font-size--text-main: 1rem;
-  --_typography---font-size--text-large: 1.25rem;
-  --_typography---font-size--display: 7rem;
-  --_typography---font-size--h1: 5rem;
-  --_typography---font-size--h2: 4rem;
-  --_typography---font-size--h3: 3rem;
-  --_typography---font-size--h4: 2rem;
-  --_typography---font-size--h5: 1.5rem;
-  --_typography---font-size--h6: 1rem;
+  --_typography---font-size--text-small: clamp(0.83rem, 0.83rem + 0vw, 0.83rem);
+  --_typography---font-size--text-main: clamp(0.95rem, 0.936rem + 0.07vw, 1rem);
+  --_typography---font-size--text-large: clamp(
+    1.08rem,
+    1.04rem + 0.2vw,
+    1.22rem
+  );
+  --_typography---font-size--display: clamp(
+    6.35rem,
+    4.618rem + 8.66vw,
+    12.41rem
+  );
+  --_typography---font-size--h1: clamp(3.18rem, 2.708rem + 2.36vw, 4.83rem);
+  --_typography---font-size--h2: clamp(2.52rem, 2.234rem + 1.43vw, 3.52rem);
+  --_typography---font-size--h3: clamp(2rem, 1.838rem + 0.81vw, 2.57rem);
+  --_typography---font-size--h4: clamp(1.59rem, 1.508rem + 0.41vw, 1.88rem);
+  --_typography---font-size--h5: clamp(1.26rem, 1.228rem + 0.16vw, 1.37rem);
+  --_typography---font-size--h6: clamp(1rem, 1rem + 0vw, 1rem);
 }
 
 /** Font Sizes line height **/
@@ -141,46 +155,49 @@
   --size--1rem: 1rem;
   --size--1-25rem: 1.25rem;
   --size--1-5rem: 1.5rem;
-  --size--2rem: 2rem;
-  --size--2-5rem: 2.5rem;
-  --size--3rem: 3rem;
-  --size--3-5rem: 3.5rem;
-  --size--4rem: 4rem;
-  --size--4-5rem: 4.5rem;
-  --size--5rem: 5rem;
-  --size--5-5rem: 5.5rem;
-  --size--6rem: 6rem;
-  --size--6-5rem: 6.5rem;
-  --size--7rem: 7rem;
-  --size--7-5rem: 7.5rem;
-  --size--8rem: 8rem;
-  --size--8-5rem: 8.5rem;
-  --size--9rem: 9rem;
-  --size--9-5rem: 9.5rem;
-  --size--10rem: 10rem;
-  --size--11rem: 11rem;
-  --size--12rem: 12rem;
-  --size--13rem: 13rem;
-  --size--14rem: 14rem;
-  --size--15rem: 15rem;
-  --size--16rem: 16rem;
+  --size--2rem: clamp(1.75rem, 1.678rem + 0.36vw, 2rem);
+  --size--2-5rem: clamp(2rem, 1.858rem + 0.71vw, 2.5rem);
+  --size--3rem: clamp(2.25rem, 2.036rem + 1.07vw, 3rem);
+  --size--3-5rem: clamp(2.375rem, 2.053rem + 1.61vw, 3.5rem);
+  --size--4rem: clamp(2.5rem, 2.072rem + 2.14vw, 4rem);
+  --size--4-5rem: clamp(2.75rem, 2.25rem + 2.5vw, 4.5rem);
+  --size--5rem: clamp(3rem, 2.428rem + 2.86vw, 5rem);
+  --size--5-5rem: clamp(3.25rem, 2.608rem + 3.21vw, 5.5rem);
+  --size--6rem: clamp(3.5rem, 2.786rem + 3.57vw, 6rem);
+  --size--6-5rem: clamp(3.75rem, 2.964rem + 3.93vw, 6.5rem);
+  --size--7rem: clamp(4rem, 3.142rem + 4.29vw, 7rem);
+  --size--7-5rem: clamp(4.25rem, 3.322rem + 4.64vw, 7.5rem);
+  --size--8rem: clamp(4.5rem, 3.5rem + 5vw, 8rem);
+  --size--8-5rem: clamp(4.75rem, 3.678rem + 5.36vw, 8.5rem);
+  --size--9rem: clamp(5rem, 3.858rem + 5.71vw, 9rem);
+  --size--9-5rem: clamp(5.25rem, 4.036rem + 6.07vw, 9.5rem);
+  --size--10rem: clamp(5.5rem, 4.214rem + 6.43vw, 10rem);
+  --size--11rem: clamp(5.75rem, 4.25rem + 7.5vw, 11rem);
+  --size--12rem: clamp(6rem, 4.286rem + 8.57vw, 12rem);
+  --size--13rem: clamp(6.5rem, 4.642rem + 9.29vw, 13rem);
+  --size--14rem: clamp(7rem, 5rem + 10vw, 14rem);
+  --size--15rem: clamp(7.5rem, 5.358rem + 10.71vw, 15rem);
+  --size--16rem: clamp(8rem, 5.714rem + 11.43vw, 16rem);
 }
 
 /** Section Spacing **/
-/* !! Replace with fluid sizes !! */
 :root {
-  --_spacing---space--1: 0.5rem;
-  --_spacing---space--2: 0.75rem;
-  --_spacing---space--3: 1rem;
-  --_spacing---space--4: 1.5rem;
-  --_spacing---space--5: 2rem;
-  --_spacing---space--6: 2.5rem;
-  --_spacing---space--7: 3rem;
-  --_spacing---space--8: 4rem;
+  --_spacing---space--8: clamp(2.64rem, 2.228rem + 2.06vw, 4.08rem);
+  --_spacing---space--7: clamp(1.88rem, 1.634rem + 1.23vw, 2.74rem);
+  --_spacing---space--6: clamp(1.34rem, 1.198rem + 0.71vw, 1.84rem);
+  --_spacing---space--5: clamp(0.96rem, 0.882rem + 0.39vw, 1.23rem);
+  --_spacing---space--4: clamp(0.69rem, 0.65rem + 0.2vw, 0.83rem);
+  --_spacing---space--3: clamp(0.49rem, 0.47rem + 0.1vw, 0.56rem);
+  --_spacing---space--2: clamp(0.35rem, 0.344rem + 0.03vw, 0.37rem);
+  --_spacing---space--1: clamp(0.25rem, 0.25rem + 0vw, 0.25rem);
   --_spacing---section-space--none: 0rem;
-  --_spacing---section-space--small: 5rem;
-  --_spacing---section-space--main: 7rem;
-  --_spacing---section-space--large: 10rem;
+  --_spacing---section-space--small: clamp(3.69rem, 3.01rem + 3.4vw, 6.07rem);
+  --_spacing---section-space--main: clamp(5.17rem, 4.062rem + 5.54vw, 9.05rem);
+  --_spacing---section-space--large: clamp(
+    7.23rem,
+    5.444rem + 8.93vw,
+    13.48rem
+  );
   --_spacing---section-space--page-top: 14rem;
 }
 
@@ -240,43 +257,6 @@
   --column-margin--10: calc(var(--column-width-plus-gutter) * 10);
   --column-margin--11: calc(var(--column-width-plus-gutter) * 11);
   --column-margin--12: calc(var(--column-width-plus-gutter) * 12);
-}
-
-/* ===============================
-     Buttons
-  =============================== */
-/** Base theme buttons **/
-:root {
-  --_theme---button-primary--background: var(--color--brand-main);
-  --_theme---button-primary--border: var(--color--brand-main);
-  --_theme---button-primary--text: var(--color--brand-light);
-  --_theme---button-primary--background-hover: var(--color--brand-dark);
-  --_theme---button-primary--border-hover: var(--color--brand-dark);
-  --_theme---button-primary--text-hover: var(--color--brand-light);
-
-  --_theme---button-secondary--background: var(--color--transparent);
-  --_theme---button-secondary--border: var(--color--dark-faded);
-  --_theme---button-secondary--text: var(--color--brand-dark);
-  --_theme---button-secondary--background-hover: var(--color--brand-dark);
-  --_theme---button-secondary--border-hover: var(--color--brand-dark);
-  --_theme---button-secondary--text-hover: var(--color--brand-light);
-}
-
-/** Dark theme buttons **/
-.dark {
-  --_theme---button-primary--background: var(--color--brand-main);
-  --_theme---button-primary--border: var(--color--brand-main);
-  --_theme---button-primary--text: var(--color--brand-light);
-  --_theme---button-primary--background-hover: var(--color--brand-light);
-  --_theme---button-primary--border-hover: var(--color--brand-light);
-  --_theme---button-primary--text-hover: var(--color--brand-dark);
-
-  --_theme---button-secondary--background: var(--color--transparent);
-  --_theme---button-secondary--border: var(--color--light-faded);
-  --_theme---button-secondary--text: var(--color--brand-light);
-  --_theme---button-secondary--background-hover: var(--color--brand-light);
-  --_theme---button-secondary--border-hover: var(--color--brand-light);
-  --_theme---button-secondary--text-hover: var(--color--brand-dark);
 }
 
 /* ===============================
