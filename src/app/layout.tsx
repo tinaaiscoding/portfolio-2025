@@ -3,6 +3,8 @@ import dynamic from 'next/dynamic';
 import localFont from 'next/font/local';
 import './styles/globals.css';
 
+import Navigation from './components/layout/Navigation/Navigation';
+
 const GridOverlay =
   process.env.NODE_ENV === 'development'
     ? dynamic(() => import('./devTools/components/GridOverlay'))
@@ -11,12 +13,12 @@ const GridOverlay =
 const cabinetGrotesk = localFont({
   src: [
     {
-      path: '/public/fonts/CabinetGrotesk-Bold.woff2',
+      path: '../../public/fonts/CabinetGrotesk-Black.woff2',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '/public/fonts/CabinetGrotesk-Black.woff2',
+      path: '../../public/fonts/CabinetGrotesk-Black.woff2',
       weight: '900',
       style: 'normal',
     },
@@ -28,17 +30,17 @@ const cabinetGrotesk = localFont({
 const generalSans = localFont({
   src: [
     {
-      path: '/public/fonts/GeneralSans-Regular.woff2',
+      path: '../../public/fonts/GeneralSans-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '/public/fonts/GeneralSans-Medium.woff2',
+      path: '../../public/fonts/GeneralSans-Medium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '/public/fonts/GeneralSans-Semibold.woff2',
+      path: '../../public/fonts/GeneralSans-Semibold.woff2',
       weight: '600',
       style: 'normal',
     },
@@ -63,6 +65,7 @@ export default function RootLayout({
     <html lang='en' className={`${fonts}`}>
       <body className='antialiased'>
         {process.env.NODE_ENV === 'development' && <GridOverlay />}
+        <Navigation/>
         {children}
       </body>
     </html>

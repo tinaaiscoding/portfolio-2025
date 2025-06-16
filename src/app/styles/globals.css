@@ -135,4 +135,11 @@
       background 0.3s,
       color 0.3s;
   }
+
+  ul,
+  ol {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: '';
+  }
 }

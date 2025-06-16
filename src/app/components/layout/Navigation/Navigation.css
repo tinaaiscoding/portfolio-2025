@@ -1,0 +1,8 @@
+.navbar_wrap {
+  z-index: 100;
+  background-color: var(--_theme---background);
+  width: 100%;
+  position: fixed;
+  container-type: inline-size;
+  container-name: navbar;  
+}
