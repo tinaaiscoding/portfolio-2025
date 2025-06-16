@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import localFont from 'next/font/local';
-import './styles/globals.css';
 
+import Footer from './components/layout/Footer/Footer';
 import Navigation from './components/layout/Navigation/Navigation';
+import './styles/globals.css';
 
 const GridOverlay =
   process.env.NODE_ENV === 'development'
@@ -65,8 +66,9 @@ export default function RootLayout({
     <html lang='en' className={`${fonts}`}>
       <body className='antialiased'>
         {process.env.NODE_ENV === 'development' && <GridOverlay />}
-        <Navigation/>
+        <Navigation />
         {children}
+        <Footer />
       </body>
     </html>
   );

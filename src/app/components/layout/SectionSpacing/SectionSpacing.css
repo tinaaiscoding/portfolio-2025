@@ -1,0 +1,11 @@
+.section_spacing.small {
+  height: var(--_spacing---section-space--small);
+}
+
+.section_spacing.main {
+  height: var(--_spacing---section-space--main);
+}
+
+.section_spacing.large {
+  height: var(--_spacing---section-space--large);
+}
