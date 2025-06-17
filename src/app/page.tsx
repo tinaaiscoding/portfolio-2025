@@ -1,10 +1,9 @@
-import Button from './components/ui/Button/Button';
+import Hero from './components/pages/Home/Hero';
 
 export default function Home() {
   return (
     <div className='u-container'>
-      Tina's Portfolio
-      <Button>Hello</Button>
+      <Hero />
     </div>
   );
 }

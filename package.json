@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@svgr/webpack": "^8.1.0",
+    "gsap": "^3.13.0",
     "hamburger-react": "^2.5.2",
     "next": "15.3.3",
     "react": "^19.0.0",

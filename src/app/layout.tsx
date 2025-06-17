@@ -14,7 +14,7 @@ const GridOverlay =
 const cabinetGrotesk = localFont({
   src: [
     {
-      path: '../../public/fonts/CabinetGrotesk-Black.woff2',
+      path: '../../public/fonts/CabinetGrotesk-Bold.woff2',
       weight: '700',
       style: 'normal',
     },

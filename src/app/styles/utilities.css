@@ -340,12 +340,32 @@
 }
 
 /** Text Line Height Trim **/
-:is([class*='u-text-style-'], h1, h2, h3, h4, h5, h6, p)::before {
+:is(
+    [class*='u-text-style-'],
+    .hero_heading_text,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p
+  )::before {
   content: '';
   display: table;
   margin-bottom: calc(-0.5lh + var(--_text-style---trim-top));
 }
-:is([class*='u-text-style-'], h1, h2, h3, h4, h5, h6, p)::after {
+:is(
+    [class*='u-text-style-'],
+    .hero_heading_text,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p
+  )::after {
   content: '';
   display: table;
   margin-bottom: calc(-0.5lh + var(--_text-style---trim-bottom));
