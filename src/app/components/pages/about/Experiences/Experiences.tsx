@@ -2,7 +2,7 @@ import './Experiences.css';
 
 export default function Experiences() {
   return (
-    <div className='exp_wrap flex flex-col items-start justify-center'>
+    <section className='exp_wrap flex flex-col items-start justify-center'>
       <div className='exp_contain u-container'>
         <div className='exp_heading'>
           <h2 className='u-text-style-display-secondary'>experience</h2>
@@ -28,6 +28,6 @@ export default function Experiences() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

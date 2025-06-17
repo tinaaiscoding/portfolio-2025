@@ -55,7 +55,7 @@ export default function HomeHero() {
   }, []);
 
   return (
-    <div
+    <section
       className='home_hero_wrap flex flex-col items-center justify-center'
       ref={heroRef}
     >
@@ -151,6 +151,6 @@ export default function HomeHero() {
         </div>
       </div>
       <SectionSpacing />
-    </div>
+    </section>
   );
 }

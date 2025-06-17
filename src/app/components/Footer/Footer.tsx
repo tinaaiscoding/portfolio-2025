@@ -6,7 +6,7 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <div className='footer_wrap flex flex-col items-start justify-between'>
+    <footer className='footer_wrap flex flex-col items-start justify-between'>
       <SectionSpacing variant='small' />
       <div className='footer_contain u-container flex flex-col'>
         <div className='footer_layout flex flex-1 flex-col items-stretch justify-between'>
@@ -68,6 +68,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

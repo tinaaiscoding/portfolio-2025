@@ -1,0 +1,21 @@
+.techstack_wrap {
+  grid-column-gap: 1.25rem;
+  grid-row-gap: 0rem;
+  width: 100%;
+  position: relative;
+  container-type: inline-size;
+}
+
+.techstack_list_wrap {
+  padding-left: var(--column-margin--4);
+  padding-bottom: calc(
+    (100vh / 2) - ((var(--_typography---font-size--display)) / 2)
+  );
+}
+
+.techstack_list_item {
+  padding-top: var(--_spacing---space--5);
+  padding-bottom: var(--_spacing---space--5);
+  /* opacity: 0.1; */
+  color: var(--color--brand-main);
+}

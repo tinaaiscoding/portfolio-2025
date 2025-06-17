@@ -4,7 +4,7 @@ import './AboutHero.css';
 
 export default function AboutHero() {
   return (
-    <div className='about_hero_wrap'>
+    <section className='about_hero_wrap'>
       <div className='about_hero_contain u-container'>
         <div className='about_hero_layout'>
           <div className='about_hero_heading'>
@@ -23,6 +23,6 @@ export default function AboutHero() {
         </div>
       </div>
       <SectionSpacing />
-    </div>
+    </section>
   );
 }

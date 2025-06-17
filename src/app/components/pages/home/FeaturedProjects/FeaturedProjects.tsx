@@ -3,8 +3,8 @@ import './FeaturedProjects.css';
 
 export default function FeaturedProjects() {
   return (
-    <div className='featured_projects_wrap'>
+    <section className='featured_projects_wrap'>
       <FeaturedProject />
-    </div>
+    </section>
   );
 }
