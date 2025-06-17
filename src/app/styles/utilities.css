@@ -86,7 +86,33 @@
       Text Styles
 ================================= */
 @layer utilities {
-  .u-text-style-display {
+  .u-text-style-display-primary {
+    --_text-style--font-family: var(--_typography---font-family--primary);
+    --_text-style--font-size: var(--_typography---font-size--h1);
+    --_text-style--line-height: 1.15;
+    --_text-style--font-weight: var(
+      --_typography---font-weight--primary-medium
+    );
+    --_text-style--letter-spacing: var(
+      --_typography---letter-spacing--neg-0-03em
+    );
+    --_text-style--margin-top: var(--_spacing---space--7);
+    --_text-style--margin-bottom: var(--_spacing---space--6);
+    --_text-style--text-transform: var(--_typography---text-transform--none);
+    --_text-style--trim-top: var(--_typography---font--primary-trim-top);
+    --_text-style--trim-bottom: var(--_typography---font--primary-trim-bottom);
+
+    font-family: var(--_text-style--font-family);
+    font-size: var(--_text-style--font-size);
+    line-height: var(--_text-style--line-height);
+    font-weight: var(--_text-style--font-weight);
+    letter-spacing: var(--_text-style--letter-spacing);
+    text-transform: var(--_text-style--text-transform);
+    text-wrap: balance;
+    display: flow-root;
+  }
+
+  .u-text-style-display-secondary {
     --_text-style--font-family: var(--_typography---font-family--secondary);
     --_text-style--font-size: var(--_typography---font-size--display);
     --_text-style--line-height: var(--_typography---line-height--1);
@@ -114,7 +140,33 @@
     display: flow-root;
   }
 
-  .u-text-style-h1 {
+  .u-text-style-h1-primary {
+    --_text-style--font-family: var(--_typography---font-family--primary);
+    --_text-style--font-size: var(--_typography---font-size--h1);
+    --_text-style--line-height: var(--_typography---line-height--1);
+    --_text-style--font-weight: var(
+      --_typography---font-weight--primary-semibold
+    );
+    --_text-style--letter-spacing: var(
+      --_typography---letter-spacing--neg-0-03em
+    );
+    --_text-style--margin-top: var(--_spacing---space--7);
+    --_text-style--margin-bottom: var(--_spacing---space--6);
+    --_text-style--text-transform: var(--_typography---text-transform--none);
+    --_text-style--trim-top: var(--_typography---font--primary-trim-top);
+    --_text-style--trim-bottom: var(--_typography---font--primary-trim-bottom);
+
+    font-family: var(--_text-style--font-family);
+    font-size: var(--_text-style--font-size);
+    line-height: var(--_text-style--line-height);
+    font-weight: var(--_text-style--font-weight);
+    letter-spacing: var(--_text-style--letter-spacing);
+    text-transform: var(--_text-style--text-transform);
+    text-wrap: balance;
+    display: flow-root;
+  }
+
+  .u-text-style-h1-secondary {
     --_text-style--font-family: var(--_typography---font-family--secondary);
     --_text-style--font-size: var(--_typography---font-size--h1);
     --_text-style--line-height: var(--_typography---line-height--1);
@@ -353,7 +405,7 @@
   )::before {
   content: '';
   display: table;
-  margin-bottom: calc(-0.5lh + var(--_text-style---trim-top));
+  margin-bottom: calc(-0.5lh + var(--_text-style--trim-top));
 }
 :is(
     [class*='u-text-style-'],
@@ -368,5 +420,5 @@
   )::after {
   content: '';
   display: table;
-  margin-bottom: calc(-0.5lh + var(--_text-style---trim-bottom));
+  margin-bottom: calc(-0.5lh + var(--_text-style--trim-bottom));
 }

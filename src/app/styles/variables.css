@@ -1,4 +1,5 @@
-/* https://fluidbuilder.webflow.io/?design=90&max=90&min=20&f&g=--site--margin,3.5,1,t_--size--2rem,2,1.75_--size--2-5rem,2.5,2_--size--3rem,3,2.25_--size--3-5rem,3.5,2.375_--size--4rem,4,2.5_--size--4-5rem,4.5,2.75_--size--5rem,5,3_--size--5-5rem,5.5,3.25_--size--6rem,6,3.5_--size--6-5rem,6.5,3.75_--size--7rem,7,4_--size--7-5rem,7.5,4.25_--size--8rem,8,4.5_--size--8-5rem,8.5,4.75_--size--9rem,9,5_--size--9-5rem,9.5,5.25_--size--10rem,10,5.5_--size--11rem,11,5.75_--size--12rem,12,6_--size--13rem,13,6.5_--size--14rem,14,7_--size--15rem,15,7.5_--size--16rem,16,8&g=:1.37,1.26:--_typography---font-size--display,12.41,6.35_--variable-name,9.06,5.04_--variable-name,6.61,4_--_typography---font-size--h1,4.83,3.18_--_typography---font-size--h2,3.52,2.52_--_typography---font-size--h3,2.57,2_--_typography---font-size--h4,1.88,1.59_--_typography---font-size--h5,1.37,1.26_--_typography---font-size--h6,1,1,t&g=:1.21,1.14:--_typography---font-size--text-large,1.78,1.4_--variable-name,1.47,1.23_--variable-name,1.22,1.08_--_typography---font-size--text-main,1,0.95_--_typography---font-size--text-small,0.83,0.83,t&g=:1.49,1.4:--_spacing---section-space--large,13.48,7.23_--_spacing---section-space--main,9.05,5.17_--_spacing---section-space--small,6.07,3.69_--_spacing---space--8,4.08,2.64_--_spacing---space--7,2.74,1.88_--_spacing---space--6,1.84,1.34_--_spacing---space--5,1.23,0.96_--_spacing---space--4,0.83,0.69_--_spacing---space--3,0.56,0.49_--_spacing---space--2,0.37,0.35_--_spacing---space--1,0.25,0.25,t */
+/* https://fluidbuilder.webflow.io/?design=90&max=90&min=20&f&g=--site--margin,3.5,1,t_--size--2rem,2,1.75_--size--2-5rem,2.5,2_--size--3rem,3,2.25_--size--3-5rem,3.5,2.375_--size--4rem,4,2.5_--size--4-5rem,4.5,2.75_--size--5rem,5,3_--size--5-5rem,5.5,3.25_--size--6rem,6,3.5_--size--6-5rem,6.5,3.75_--size--7rem,7,4_--size--7-5rem,7.5,4.25_--size--8rem,8,4.5_--size--8-5rem,8.5,4.75_--size--9rem,9,5_--size--9-5rem,9.5,5.25_--size--10rem,10,5.5_--size--11rem,11,5.75_--size--12rem,12,6_--size--13rem,13,6.5_--size--14rem,14,7_--size--15rem,15,7.5_--size--16rem,16,8&g=:1.37,1.26:--_typography---font-size--display,9.06,5.04_--variable-name,6.61,4_--_typography---font-size--h1,4.83,3.18_--_typography---font-size--h2,3.52,2.52_--_typography---font-size--h3,2.57,2_--_typography---font-size--h4,1.88,1.59_--_typography---font-size--h5,1.37,1.26_--_typography---font-size--h6,1,1,t&g=:1.21,1.14:--_typography---font-size--text-large,1.78,1.4_--variable-name,1.47,1.23_--variable-name,1.22,1.08_--_typography---font-size--text-main,1,0.95_--_typography---font-size--text-small,0.83,0.83,t&g=:1.49,1.4:--_spacing---section-space--large,13.48,7.23_--_spacing---section-space--main,9.05,5.17_--_spacing---section-space--small,6.07,3.69_--_spacing---space--8,4.08,2.64_--_spacing---space--7,2.74,1.88_--_spacing---space--6,1.84,1.34_--_spacing---space--5,1.23,0.96_--_spacing---space--4,0.83,0.69_--_spacing---space--3,0.56,0.49_--_spacing---space--2,0.37,0.35_--_spacing---space--1,0.25,0.25,t */
+
 
 /* ===============================
      Theme Colors
@@ -102,9 +103,9 @@
     1.78rem
   );
   --_typography---font-size--display: clamp(
-    6.35rem,
-    4.618rem + 8.66vw,
-    12.41rem
+    5.04rem,
+    3.892rem + 5.74vw,
+    9.06rem
   );
   --_typography---font-size--h1: clamp(3.18rem, 2.708rem + 2.36vw, 4.83rem);
   --_typography---font-size--h2: clamp(2.52rem, 2.234rem + 1.43vw, 3.52rem);

@@ -1,0 +1,15 @@
+.about_hero_layout {
+  padding-top: 70vh;
+}
+
+.about_hero_heading {
+  margin-bottom: var(--_spacing---space--7);
+}
+
+.about_hero_info {
+  width: var(--column-width--8);
+}
+
+.about_hero_text {
+    color: var(--color--brand-main);
+}
