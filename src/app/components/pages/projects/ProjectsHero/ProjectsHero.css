@@ -1,0 +1,55 @@
+.projects_hero_wrap {
+  min-height: 100svh;
+}
+
+.projects_heading {
+  margin-bottom: var(--_spacing---space--7);
+}
+
+.projects_list_wrap {
+  width: var(--column-width--10);
+}
+
+.projects_item_wrap {
+  border-bottom: var(--border-width--main) solid var(--_theme---text);
+  position: relative;
+}
+
+.projects_item_content {
+  padding-top: var(--_spacing---space--6);
+  padding-bottom: var(--_spacing---space--6);
+  grid-column-gap: var(--_spacing---space--5);
+  grid-row-gap: var(--_spacing---space--5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  width: 100%;
+  position: relative;
+}
+
+.projects_item_skills {
+  order: 0;
+  justify-self: end;
+}
+
+@container (width <= 48em) {
+  .projects_list_wrap {
+    width: var(--column-width--12);
+  }
+}
+
+/* Small Tablet and smaller */
+@container (width <= 48em) {
+  /* Projects / List - Set to 12 columns */
+  .projects_list_wrap {
+    width: var(--column-width--12);
+  }
+
+  /* Projects / List - Change the min column size on smaller containers */
+  .projects_item_content {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 23rem), 1fr));
+  }
+
+  /* Projects / List / Item subtext (skills text) - Set align to left */
+  .projects_item_skills {
+    justify-self: start !important;
+  }
+}

@@ -3,7 +3,7 @@ import FeaturedProjects from './components/pages/home/FeaturedProjects/FeaturedP
 
 export default function Home() {
   return (
-    <div>
+    <div className='home_wrap'>
       <HomeHero />
       <FeaturedProjects />
     </div>

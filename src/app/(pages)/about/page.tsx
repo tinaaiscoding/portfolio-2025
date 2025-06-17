@@ -4,7 +4,7 @@ import TechStack from '@/app/components/pages/about/TechStack/TechStack';
 
 export default function Page() {
   return (
-    <div>
+    <div className='about_wrap'>
       <AboutHero />
       <Experiences />
       <TechStack />
