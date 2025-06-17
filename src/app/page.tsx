@@ -1,10 +1,10 @@
-import Hero from './components/pages/home/Hero/Hero';
+import HomeHero from './components/pages/home/HomeHero/HomeHero';
 import FeaturedProjects from './components/pages/home/FeaturedProjects/FeaturedProjects';
 
 export default function Home() {
   return (
     <div>
-      <Hero />
+      <HomeHero />
       <FeaturedProjects />
     </div>
   );

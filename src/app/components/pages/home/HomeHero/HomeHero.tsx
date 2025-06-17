@@ -5,25 +5,25 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import SectionSpacing from '../../../SectionSpacing/SectionSpacing';
-import './Hero.css';
+import './HomeHero.css';
 
-export default function Hero() {
+export default function HomeHero() {
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!heroRef.current) return;
 
     const section = heroRef.current;
-    const sectionHeading = section.querySelector('.hero_heading_text');
-    const sectionBolds = section.querySelectorAll('.hero_heading_bold');
-    const sectionImages = section.querySelectorAll('.hero_image_wrap');
+    const sectionHeading = section.querySelector('.home_hero_heading_text');
+    const sectionBolds = section.querySelectorAll('.home_hero_heading_bold');
+    const sectionImages = section.querySelectorAll('.home_hero_image_wrap');
 
     const mm = gsap.matchMedia();
 
     mm.add('(min-width: 992px)', () => {
       sectionBolds.forEach((boldText, index) => {
         const relatedImages =
-          sectionImages[index]?.querySelectorAll('.hero_image');
+          sectionImages[index]?.querySelectorAll('.home_hero_image');
         const otherText = [...sectionBolds].filter((_, i) => i !== index);
 
         const tl = gsap.timeline({ paused: true, defaults: { duration: 0.2 } });
@@ -56,13 +56,13 @@ export default function Hero() {
 
   return (
     <div
-      className='hero_wrap flex flex-col items-center justify-center'
+      className='home_hero_wrap flex flex-col items-center justify-center'
       ref={heroRef}
     >
       <SectionSpacing />
-      <div className='hero_contain u-container flex flex-row items-center justify-center'>
-        <div className='hero_image_wrap'>
-          <div className='hero_image is-1'>
+      <div className='home_hero_contain u-container flex flex-row items-center justify-center'>
+        <div className='home_hero_image_wrap'>
+          <div className='home_hero_image is-1'>
             <Image
               src='/images/hero-1.jpeg'
               alt='Tina travelling'
@@ -70,7 +70,7 @@ export default function Hero() {
               sizes='400px 3x'
             />
           </div>
-          <div className='hero_image is-2'>
+          <div className='home_hero_image is-2'>
             <Image
               src='/images/hero-2.jpeg'
               alt='Maz and Tina'
@@ -78,7 +78,7 @@ export default function Hero() {
               sizes='400px 3x'
             />
           </div>
-          <div className='hero_image is-3'>
+          <div className='home_hero_image is-3'>
             <Image
               src='/images/hero-3.jpg'
               alt="Tina's hobby"
@@ -87,8 +87,8 @@ export default function Hero() {
             />
           </div>
         </div>
-        <div className='hero_image_wrap'>
-          <div className='hero_image is-1'>
+        <div className='home_hero_image_wrap'>
+          <div className='home_hero_image is-1'>
             <Image
               src='/images/hero-1.jpeg'
               alt='Tina travelling'
@@ -96,7 +96,7 @@ export default function Hero() {
               sizes='400px 3x'
             />
           </div>
-          <div className='hero_image is-2'>
+          <div className='home_hero_image is-2'>
             <Image
               src='/images/hero-2.jpeg'
               alt='Maz and Tina'
@@ -104,7 +104,7 @@ export default function Hero() {
               sizes='400px 3x'
             />
           </div>
-          <div className='hero_image is-3'>
+          <div className='home_hero_image is-3'>
             <Image
               src='/images/hero-3.jpg'
               alt="Tina's hobby"
@@ -113,8 +113,8 @@ export default function Hero() {
             />
           </div>
         </div>
-        <div className='hero_image_wrap'>
-          <div className='hero_image is-1'>
+        <div className='home_hero_image_wrap'>
+          <div className='home_hero_image is-1'>
             <Image
               src='/images/hero-1.jpeg'
               alt='Tina travelling'
@@ -122,7 +122,7 @@ export default function Hero() {
               sizes='400px 3x'
             />
           </div>
-          <div className='hero_image is-2'>
+          <div className='home_hero_image is-2'>
             <Image
               src='/images/hero-2.jpeg'
               alt='Maz and Tina'
@@ -130,7 +130,7 @@ export default function Hero() {
               sizes='400px 3x'
             />
           </div>
-          <div className='hero_image is-3'>
+          <div className='home_hero_image is-3'>
             <Image
               src='/images/hero-3.jpg'
               alt="Tina's hobby"
@@ -140,12 +140,12 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className='hero_heading_wrap'>
-          <p className='hero_heading_text flow-root text-center text-balance'>
-            Hi, I'm <strong className='hero_heading_bold'>Tina</strong> —
+        <div className='home_hero_heading_wrap'>
+          <p className='home_hero_heading_text flow-root text-center text-balance'>
+            Hi, I'm <strong className='home_hero_heading_bold'>Tina</strong> —
             creative web developer crafting{' '}
-            <strong className='hero_heading_bold'>beautiful</strong> and{' '}
-            <strong className='hero_heading_bold'>engaging</strong> digital
+            <strong className='home_hero_heading_bold'>beautiful</strong> and{' '}
+            <strong className='home_hero_heading_bold'>engaging</strong> digital
             experiences.
           </p>
         </div>

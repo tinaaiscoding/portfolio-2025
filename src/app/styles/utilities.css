@@ -342,7 +342,7 @@
 /** Text Line Height Trim **/
 :is(
     [class*='u-text-style-'],
-    .hero_heading_text,
+    .home_hero_heading_text,
     h1,
     h2,
     h3,
@@ -357,7 +357,7 @@
 }
 :is(
     [class*='u-text-style-'],
-    .hero_heading_text,
+    .home_hero_heading_text,
     h1,
     h2,
     h3,
