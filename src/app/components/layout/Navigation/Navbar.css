@@ -74,6 +74,7 @@
   transform: translate(0.3rem);
 }
 
+/* Small Tablet and smaller */
 @container (width <= 48em) {
   /* Display mobile navbar */
   .navbar.is-mobile {

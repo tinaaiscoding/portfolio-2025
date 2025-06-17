@@ -14,7 +14,7 @@ export default function Footer() {
             <div className='u-text-style-large'>
               <p>
                 Interested in collaborating on a project, have questions, or
-                just want to say hello? I’d love to hear from you!
+                just want to say hello? I'd love to hear from you!
               </p>
             </div>
             <div className='u-text-style-large'>
@@ -23,10 +23,7 @@ export default function Footer() {
           </div>
           <div className='footer_nav_wrap'>
             <div className='footer_links_wrap grid auto-cols-fr'>
-              <ul
-                role='list'
-                className='footer_links_column flex flex-row items-start'
-              >
+              <ul className='footer_links_column flex flex-row items-start'>
                 <li className='footer_links_item'>
                   <Link href='/' className='footer_links_link'>
                     Home
@@ -44,10 +41,7 @@ export default function Footer() {
                 </li>
               </ul>
 
-              <ul
-                role='list'
-                className='footer_links_column footer_links_column flex flex-row justify-end'
-              >
+              <ul className='footer_links_column footer_links_column flex flex-row items-end justify-end'>
                 <li className='footer_links_item'>
                   <a
                     href='https://www.linkedin.com/in/tinanhivo'

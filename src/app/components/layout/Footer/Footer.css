@@ -10,7 +10,6 @@
 }
 
 .footer_layout {
-  grid-column-gap: var(--_spacing---space--8);
   grid-row-gap: var(--_spacing---space--8);
   width: 100%;
   height: 100%;
@@ -18,7 +17,6 @@
 
 .footer_text_wrap {
   width: var(--column-width--5);
-  grid-column-gap: var(--_spacing---space--8);
   grid-row-gap: var(--_spacing---space--8);
 }
 
@@ -29,18 +27,33 @@
 
 .footer_links_wrap {
   margin-bottom: var(--_spacing---space--7);
-    grid-column-gap: var(--_spacing---space--5);
-    grid-row-gap: var(--_spacing---space--5);
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 5rem), 1fr));
-    align-self: flex-end;
+  grid-column-gap: var(--_spacing---space--5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 5rem), 1fr));
+  align-self: flex-end;
 }
 
 .footer_links_column {
-    grid-column-gap: var(--_spacing---space--7);
-    grid-row-gap: var(--_spacing---space--7);
-    flex-flow: wrap;
+  grid-column-gap: var(--_spacing---space--7);
+  grid-row-gap: var(--_spacing---space--7);
+  flex-flow: wrap;
 }
 
 .footer_svg {
   width: 100%;
+  height: 100%;
+}
+
+/* Tablet and smaller */
+@container (width < 60rem) {
+  .footer_text_wrap {
+    width: var(--column-width--12);
+    text-wrap: wrap;
+  }
+}
+
+/* Small Tablet and smaller */
+@container (width <= 48em) {
+  .footer_links_column {
+    flex-flow: column;
+  }
 }
