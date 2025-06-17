@@ -1,0 +1,21 @@
+.exp_wrap {
+  min-height: 100svh;
+}
+
+.exp_heading {
+  margin-bottom: var(--_spacing---space--7);
+}
+
+.exp_item_wrap {
+  padding-top: var(--_spacing---space--7);
+  padding-bottom: var(--_spacing---space--7);
+  grid-column-gap: var(--_spacing---space--5);
+  grid-row-gap: var(--_spacing---space--5);
+  border-bottom: 1px solid #000;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+}
+
+.exp_item_subtext {
+  grid-column-gap: var(--_spacing---space--5);
+  grid-row-gap: var(--_spacing---space--5);
+}
