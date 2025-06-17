@@ -1,0 +1,7 @@
+.featured_projects_wrap {
+  background-color: hsla(340.93457943925233, 62.57%, 66.47%, 1.00);
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  container-type: inline-size;
+}

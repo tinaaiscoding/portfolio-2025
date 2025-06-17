@@ -4,8 +4,8 @@ import { Turn as Hamburger } from 'hamburger-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import Dot from '../../../../../public/images/icons/dot.svg';
-import TinaVo from '../../../../../public/images/icons/tina-vo.svg';
+import Dot from '../../../../public/images/icons/dot.svg';
+import TinaVo from '../../../../public/images/icons/tina-vo.svg';
 
 import './Navbar.css';
 

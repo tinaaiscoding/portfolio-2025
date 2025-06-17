@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import TinaVo from '../../../../../public/images/icons/tina-vo.svg';
+import TinaVo from '../../../../public/images/icons/tina-vo.svg';
 import SectionSpacing from '../SectionSpacing/SectionSpacing';
 import './Footer.css';
 

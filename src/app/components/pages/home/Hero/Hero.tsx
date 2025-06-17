@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
-import SectionSpacing from '../../layout/SectionSpacing/SectionSpacing';
+import SectionSpacing from '../../../SectionSpacing/SectionSpacing';
 import './Hero.css';
 
 export default function Hero() {

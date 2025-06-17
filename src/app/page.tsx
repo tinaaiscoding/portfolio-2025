@@ -1,9 +1,11 @@
-import Hero from './components/pages/Home/Hero';
+import Hero from './components/pages/home/Hero/Hero';
+import FeaturedProjects from './components/pages/home/FeaturedProjects/FeaturedProjects';
 
 export default function Home() {
   return (
-    <div className='u-container'>
+    <div>
       <Hero />
+      <FeaturedProjects />
     </div>
   );
 }

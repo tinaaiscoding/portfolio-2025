@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import localFont from 'next/font/local';
 
-import Footer from './components/layout/Footer/Footer';
-import Navigation from './components/layout/Navigation/Navigation';
+import Footer from './components/Footer/Footer';
+import Navigation from './components/Navigation/Navigation';
 import './styles/globals.css';
 
 const GridOverlay =

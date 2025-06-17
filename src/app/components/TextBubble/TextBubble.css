@@ -1,0 +1,21 @@
+.text_bubble_wrap {
+    padding-top: var(--size--0-125rem);
+    padding-right: var(--size--0-75rem);
+    padding-bottom: var(--size--0-125rem);
+    padding-left: var(--size--0-75rem);
+    border-top-style: solid;
+    border-top-width: var(--border-width--main);
+    border-right-style: solid;
+    border-right-width: var(--border-width--main);
+    border-bottom-style: solid;
+    border-bottom-width: var(--border-width--main);
+    border-left-style: solid;
+    border-left-width: var(--border-width--main);
+    border-top-left-radius: var(--radius--round);
+    border-top-right-radius: var(--radius--round);
+    border-bottom-left-radius: var(--radius--round);
+    border-bottom-right-radius: var(--radius--round);
+    text-align: center;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+}
