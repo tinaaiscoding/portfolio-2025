@@ -1,0 +1,18 @@
+.horizontal_scroll_section {
+  width: 100%;
+  position: relative;
+}
+
+.horizontal_scroll_track {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  /* overflow-x: hidden; */
+}
+
+.horizontal_scroll_item {
+  flex-shrink: 0;
+  position: relative;
+  height: 100vh;
+}

@@ -1,0 +1,65 @@
+.project_content_layout {
+  grid-column-gap: var(--_spacing---space--6);
+  grid-row-gap: var(--_spacing---space--6);
+  width: 100%;
+}
+
+.project_header_wrap {
+  flex: 500 auto;
+  width: 29rem;
+}
+
+.project_text_wrap {
+  grid-column-gap: var(--_spacing---space--7);
+  grid-row-gap: var(--_spacing---space--7);
+  flex: auto;
+  width: var(--column-width--6);
+}
+
+.project_skills_list {
+  grid-column-gap: var(--_spacing---space--4);
+  grid-row-gap: var(--_spacing---space--4);
+}
+
+/* Project Image Horizontal Scroller */
+.h_scroll_wrap {
+  width: 100%;
+  padding-bottom: 100vh;
+  position: relative;
+}
+
+.h_scroll_height {
+  width: 100%;
+  height: 500vw;
+}
+
+.h_scroll_sticky_wrap {
+  position: absolute;
+  inset: 0%;
+}
+
+.h_scroll_sticky_element {
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.h_scroll_track_wrap {
+  flex: none;
+  justify-content: flex-start;
+  align-items: stretch;
+  display: flex;
+  position: relative;
+}
+
+.h_scroll_track_flex {
+  flex-flow: row;
+  justify-content: flex-start;
+  margin-right: -100vw;
+  display: flex;
+}
