@@ -14,6 +14,11 @@
   height: 100%;
 }
 
+.featured_project_skills_list {
+  grid-column-gap: var(--_spacing---space--4);
+  grid-row-gap: var(--_spacing---space--4);
+}
+
 .featured_project_image_wrap {
   flex: 1;
   width: 100%;
