@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 
 import Footer from './components/Footer/Footer';
 import Navigation from './components/Navigation/Navigation';
+import LenisScrollProvider from './lib/lenis-provider';
 import './styles/globals.css';
 
 const GridOverlay =
@@ -63,13 +64,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className={`${fonts}`}>
-      <body className='antialiased'>
-        {process.env.NODE_ENV === 'development' && <GridOverlay />}
-        <Navigation />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <LenisScrollProvider>
+      <html lang='en' className={`${fonts}`}>
+        <body className='antialiased'>
+          {process.env.NODE_ENV === 'development' && <GridOverlay />}
+          <Navigation />
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </LenisScrollProvider>
   );
 }
