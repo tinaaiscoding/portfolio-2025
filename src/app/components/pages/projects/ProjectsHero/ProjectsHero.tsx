@@ -4,17 +4,17 @@ import SectionSpacing from '@/app/components/SectionSpacing/SectionSpacing';
 
 import './ProjectsHero.css';
 
-export default function ProjectsHero() {
-  const PROJECTS = [
-    { title: 'MNTN', skills: ['Web Development', 'Webflow'] },
-    {
-      title: 'Portfolio (2023)',
-      skills: ['React', 'Web Development', 'Web Design'],
-    },
-    { title: 'jetia', skills: ['React', 'Web Development'] },
-    { title: 'PokéBattles', skills: ['React', 'Web Development'] },
-  ];
+const PROJECTS = [
+  { title: 'MNTN', skills: ['Web Development', 'Webflow'] },
+  {
+    title: 'Portfolio (2023)',
+    skills: ['React', 'Web Development', 'Web Design'],
+  },
+  { title: 'jetia', skills: ['React', 'Web Development'] },
+  { title: 'PokéBattles', skills: ['React', 'Web Development'] },
+];
 
+export default function ProjectsHero() {
   return (
     <section className='projects_hero_wrap'>
       <SectionSpacing />

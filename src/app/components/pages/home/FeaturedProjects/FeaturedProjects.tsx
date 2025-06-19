@@ -9,32 +9,32 @@ import './FeaturedProjects.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const PROJECTS = [
+  {
+    title: 'jetia',
+    skills: ['React', 'Web Development'],
+    img: '/images/jetia-1.png',
+    bgColor: '#df7496',
+    textColor: 'var( --color--dark)',
+  },
+  {
+    title: 'PokéBattles',
+    skills: ['React', 'Web Development'],
+    img: '/images/pokemon-1.png',
+    bgColor: '#ffe030',
+    textColor: 'var( --color--dark)',
+  },
+  {
+    title: 'MNTN',
+    skills: ['Web Development', 'Webflow'],
+    img: '/images/mntn-1.png',
+    bgColor: '#0b1d26',
+    textColor: 'var(--color--light)',
+  },
+];
+
 export default function FeaturedProjects() {
   const projectListRef = useRef<HTMLDivElement>(null);
-
-  const PROJECTS = [
-    {
-      title: 'jetia',
-      skills: ['React', 'Web Development'],
-      img: '/images/jetia-1.png',
-      bgColor: '#df7496',
-      textColor: 'var( --color--dark)',
-    },
-    {
-      title: 'PokéBattles',
-      skills: ['React', 'Web Development'],
-      img: '/images/pokemon-1.png',
-      bgColor: '#ffe030',
-      textColor: 'var( --color--dark)',
-    },
-    {
-      title: 'MNTN',
-      skills: ['Web Development', 'Webflow'],
-      img: '/images/mntn-1.png',
-      bgColor: '#0b1d26',
-      textColor: 'var(--color--light)',
-    },
-  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {

@@ -1,24 +1,60 @@
+'use client';
+
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect } from 'react';
+
 import './TechStack.css';
 
+const TECH_STACK = [
+  'API',
+  'Express.js',
+  'Git',
+  'GraphQL',
+  'GSAP',
+  'HTML/CSS',
+  'Javascript',
+  'Node.js',
+  'PostgreSQL',
+  'Python',
+  'React',
+  'React Native',
+  'Shopify/Liquid',
+  'Tailwind',
+  'Typescript',
+  'Webflow/Lumos',
+];
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function TechStack() {
-  const TECH_STACK = [
-    'API',
-    'Express.js',
-    'Git',
-    'GraphQL',
-    'GSAP',
-    'HTML/CSS',
-    'Javascript',
-    'Node.js',
-    'PostgreSQL',
-    'Python',
-    'React',
-    'React Native',
-    'Shopify/Liquid',
-    'Tailwind',
-    'Typescript',
-    'Webflow/Lumos',
-  ];
+  useEffect(() => {
+    const techItems = document.querySelectorAll('.techstack_list_item');
+
+    techItems.forEach((item, index) => {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: item,
+          start: 'top center',
+          end: 'bottom center',
+          scrub: true,
+          id: `tech-line-${index}`,
+          onEnter: () => {
+            techItems.forEach((el) => el.classList.remove('active'));
+            item.classList.add('active');
+          },
+          onEnterBack: () => {
+            techItems.forEach((el) => el.classList.remove('active'));
+            item.classList.add('active');
+          },
+        },
+      });
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
     <section className='techstack_wrap'>

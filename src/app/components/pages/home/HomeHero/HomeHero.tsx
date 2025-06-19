@@ -70,19 +70,19 @@ export default function HomeHero() {
       return containerWidthEm <= 38;
     }
 
-    function attachSpanHoverListeners() {
+    const attachSpanHoverListeners = () => {
       spanHoverTLs.forEach(({ span, handlers }) => {
         span.addEventListener('mouseenter', handlers.mouseenter);
         span.addEventListener('mouseleave', handlers.mouseleave);
       });
-    }
+    };
 
-    function detachSpanHoverListeners() {
+    const detachSpanHoverListeners = () => {
       spanHoverTLs.forEach(({ span, handlers }) => {
         span.removeEventListener('mouseenter', handlers.mouseenter);
         span.removeEventListener('mouseleave', handlers.mouseleave);
       });
-    }
+    };
 
     const handleResize = () => {
       if (isMobileContainer()) {

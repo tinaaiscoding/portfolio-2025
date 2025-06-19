@@ -6,6 +6,15 @@
   container-type: inline-size;
 }
 
+.techstack_heading_wrap {
+  align-items: center;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
 .techstack_list_wrap {
   padding-left: var(--column-margin--4);
   padding-bottom: calc(
@@ -16,6 +25,10 @@
 .techstack_list_item {
   padding-top: var(--_spacing---space--5);
   padding-bottom: var(--_spacing---space--5);
-  /* opacity: 0.1; */
+  opacity: 0.1;
   color: var(--color--brand-main);
+}
+
+.techstack_list_item.active {
+  opacity: 1;
 }

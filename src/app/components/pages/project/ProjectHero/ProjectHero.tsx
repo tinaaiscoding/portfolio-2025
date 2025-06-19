@@ -4,16 +4,17 @@ import TextBubble from '@/app/components/TextBubble/TextBubble';
 
 import './ProjectHero.css';
 
+const PROJECT = {
+  title: 'MNTN',
+  skills: ['Web Development', 'Webflow'],
+  description: ` A responsive landing page built in Webflow, leveraging the
+                  Lumos framework for a flexible, modern design. Includes
+                  customised components and tailored styling to enhance user
+                  experience across all devices, with attention to clean
+                  layouts and seamless functionality.`,
+};
+
 export default function ProjectHero() {
-  const PROJECT = {
-    title: 'MNTN',
-    skills: ['Web Development', 'Webflow'],
-    description: ` A responsive landing page built in Webflow, leveraging the
-                    Lumos framework for a flexible, modern design. Includes
-                    customised components and tailored styling to enhance user
-                    experience across all devices, with attention to clean
-                    layouts and seamless functionality.`,
-  };
   return (
     <section className='project_hero_wrap'>
       <HorizontalImageScroll
