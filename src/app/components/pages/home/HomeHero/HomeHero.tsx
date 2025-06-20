@@ -144,7 +144,7 @@ export default function HomeHero() {
         {
           opacity: 1,
           y: '0em',
-          duration: 0.8,
+          duration: 1,
           stagger: { each: 0.02 },
           onComplete: () => {
             lenis?.start?.();

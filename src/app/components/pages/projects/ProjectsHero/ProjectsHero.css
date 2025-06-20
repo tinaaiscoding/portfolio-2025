@@ -1,5 +1,6 @@
 .projects_hero_wrap {
   min-height: 100svh;
+  visibility: hidden;
 }
 
 .projects_heading {
@@ -13,6 +14,13 @@
 .projects_item_wrap {
   border-bottom: var(--border-width--main) solid var(--_theme---text);
   position: relative;
+}
+
+.projects_item_image {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  aspect-ratio: 16 / 9;
 }
 
 .projects_item_content {
