@@ -62,7 +62,7 @@
   grid-row-gap: var(--_spacing---space--5);
 }
 
-.navbar_item_layout.is-mobile > a {
+.navbar_item_layout.is-mobile p {
   transition: transform 0.3s;
   transform: translate(-2rem);
 }
@@ -72,7 +72,7 @@
   height: 1rem;
 }
 
-.navbar_item_wrap:hover .navbar_item_layout.is-mobile > a {
+.navbar_item_wrap:hover .navbar_item_layout.is-mobile > p {
   transform: translate(0.3rem);
 }
 

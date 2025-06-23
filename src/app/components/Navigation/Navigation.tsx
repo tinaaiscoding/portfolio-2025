@@ -5,6 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLenis } from 'lenis/react';
 import { useEffect, useRef } from 'react';
 
+import { useNavbar } from '@/app/hooks/useNavbar';
+
 import { NavbarDesktop, NavbarMobile } from './Navbar';
 import './Navigation.css';
 
@@ -12,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Navigation() {
   const lenis = useLenis();
+  const { isOpen, close } = useNavbar();
   const navbarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,10 +22,6 @@ export default function Navigation() {
     if (!navbar) return;
 
     let animating = false;
-    let navbarOpen = false;
-
-    const navbarBtn = document.querySelector('.navbar_hamburger_wrap');
-    if (!navbarBtn) return;
 
     const desktopNavbarCheck = () =>
       !!document.querySelector('.navbar.is-desktop') &&
@@ -31,25 +30,18 @@ export default function Navigation() {
 
     let desktopNavbar = desktopNavbarCheck();
 
-    const handleNavbarBtnClick = () => {
-      navbarOpen = !navbarBtn?.classList.contains('open');
-    };
-
-    navbarBtn?.addEventListener('click', handleNavbarBtnClick);
-
     const handleResize = () => {
       desktopNavbar = desktopNavbarCheck();
 
-      if (desktopNavbar && navbarOpen) {
-        navbarOpen = false;
-        (navbarBtn.querySelector('.hamburger-react') as HTMLElement)?.click();
+      if (desktopNavbar && isOpen) {
+        close();
       }
     };
 
     window.addEventListener('resize', handleResize);
 
     const scroll = (direction: 'up' | 'down') => {
-      if (navbarOpen && !desktopNavbar) {
+      if (isOpen && !desktopNavbar) {
         lenis?.stop();
       } else {
         lenis?.start();
@@ -94,13 +86,12 @@ export default function Navigation() {
     });
 
     return () => {
-      navbarBtn?.removeEventListener('click', handleNavbarBtnClick);
       window.removeEventListener('resize', handleResize);
       observer.kill();
       lenis?.destroy();
     };
-  }, [lenis]);
-  
+  }, [lenis, isOpen, close]);
+
   return (
     <div ref={navbarRef} className='navbar_wrap'>
       <NavbarDesktop />

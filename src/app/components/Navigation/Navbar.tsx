@@ -2,7 +2,8 @@
 
 import { Turn as Hamburger } from 'hamburger-react';
 import Link from 'next/link';
-import { useState } from 'react';
+
+import { useNavbar } from '@/app/hooks/useNavbar';
 
 import Dot from '../../../../public/images/icons/dot.svg';
 import TinaVo from '../../../../public/images/icons/tina-vo.svg';
@@ -40,11 +41,7 @@ export const NavbarDesktop = () => {
 };
 
 export const NavbarMobile = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
-
-  const handleOnToggleMenu = (toggled: boolean) => {
-    setMenuOpen(toggled);
-  };
+  const { isOpen, toggle, close } = useNavbar();
 
   return (
     <div className='navbar is-mobile'>
@@ -54,42 +51,41 @@ export const NavbarMobile = () => {
             <TinaVo className='navbar_brand_svg' />
           </Link>
 
-          <div className={`navbar_hamburger_wrap ${menuOpen ? 'open' : ''}`}>
-            <Hamburger
-              label='Show menu'
-              rounded={true}
-              onToggle={handleOnToggleMenu}
-            />
-          </div>
+          <Hamburger
+            label='Show menu'
+            rounded={true}
+            toggled={isOpen}
+            onToggle={toggle}
+          />
         </div>
       </div>
-      {menuOpen ? (
+      {isOpen ? (
         <div className='navbar_overlay is-mobile'>
           <nav className='navbar_menu_wrap is-mobile'>
             <ul className='navbar_list is-mobile flex-col items-center justify-between'>
-              <li className='navbar_item_wrap is-mobile'>
-                <div className='navbar_item_layout is-mobile u-container flex items-center justify-items-start'>
-                  <Dot className='navbar_item_svg is-mobile' />
-                  <Link className='u-text-style-large' href='/about'>
-                    About
-                  </Link>
-                </div>
+              <li className='navbar_item_wrap is-mobile' onClick={close}>
+                <Link href='/about'>
+                  <div className='navbar_item_layout is-mobile u-container flex items-center justify-items-start'>
+                    <Dot className='navbar_item_svg is-mobile' />
+                    <p className='u-text-style-large'>About</p>
+                  </div>
+                </Link>
               </li>
-              <li className='navbar_item_wrap is-mobile'>
-                <div className='navbar_item_layout is-mobile u-container flex items-center justify-items-start'>
-                  <Dot className='navbar_item_svg is-mobile' />
-                  <Link className='u-text-style-large' href='/projects'>
-                    Projects
-                  </Link>
-                </div>
+              <li className='navbar_item_wrap is-mobile' onClick={close}>
+                <Link href='/projects'>
+                  <div className='navbar_item_layout is-mobile u-container flex items-center justify-items-start'>
+                    <Dot className='navbar_item_svg is-mobile' />
+                    <p className='u-text-style-large'>Projects</p>
+                  </div>
+                </Link>
               </li>
-              <li className='navbar_item_wrap is-mobile'>
-                <div className='navbar_item_layout is-mobile u-container flex items-center justify-items-start'>
-                  <Dot className='navbar_item_svg is-mobile' />
-                  <Link className='u-text-style-large' href='/'>
-                    Contact
-                  </Link>
-                </div>
+              <li className='navbar_item_wrap is-mobile' onClick={close}>
+                <Link href='/'>
+                  <div className='navbar_item_layout is-mobile u-container flex items-center justify-items-start'>
+                    <Dot className='navbar_item_svg is-mobile' />
+                    <p className='u-text-style-large'>Contact</p>
+                  </div>
+                </Link>
               </li>
             </ul>
           </nav>
