@@ -1,5 +1,6 @@
 .home_hero_wrap {
   min-height: 100svh;
+  visibility: hidden;
 }
 
 .home_hero_heading_text {

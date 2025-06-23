@@ -12,6 +12,15 @@ import './HomeHero.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
+type BoldTextTimelines = {
+  boldText: Element;
+  timeline: gsap.core.Timeline;
+  handlers: {
+    mouseenter: (e: Event) => void;
+    mouseleave: (e: Event) => void;
+  };
+};
+
 export default function HomeHero() {
   const lenis = useLenis();
   const heroRef = useRef<HTMLDivElement>(null);
@@ -20,27 +29,20 @@ export default function HomeHero() {
     const section = heroRef.current;
     if (!section) return;
 
-    const heroHeading = section.querySelector(
+    const heading: HTMLElement | null = section.querySelector(
       '.home_hero_heading_text',
-    ) as HTMLElement;
-    const heroBolds = section.querySelectorAll(
-      '.home_hero_heading_bold',
-    ) as NodeListOf<HTMLElement>;
+    );
+    const heroBoldTexts = section.querySelectorAll('.home_hero_heading_bold');
     const heroImages = section.querySelectorAll('.home_hero_image_wrap');
 
-    const headingWords = new SplitType(heroHeading, {
+    if (!heading || !heroBoldTexts.length || !heroImages.length) return;
+
+    const headingWords = new SplitType(heading, {
       types: 'words',
       wordClass: 'hero-words',
     }).words;
 
-    const spanHoverTLs: {
-      span: HTMLElement;
-      timeline: gsap.core.Timeline;
-      handlers: {
-        mouseenter: (e: MouseEvent) => void;
-        mouseleave: (e: MouseEvent) => void;
-      };
-    }[] = [];
+    const boldTextTLs: BoldTextTimelines[] = [];
 
     const initialHeadingTL = gsap.timeline({
       paused: true,
@@ -49,16 +51,14 @@ export default function HomeHero() {
 
     const outroHeadingTL = gsap.timeline({
       scrollTrigger: {
-        trigger: heroHeading,
+        trigger: heading,
         start: 'top top',
         end: 'bottom top',
         scrub: true,
       },
     });
 
-    function isMobileContainer(): boolean {
-      if (!section || !(section instanceof Element)) return false;
-
+    const isMobileContainer = (): boolean => {
       const containerWidthPx = getComputedStyle(section).width;
       const rootFontSizePx = getComputedStyle(
         document.documentElement,
@@ -68,66 +68,68 @@ export default function HomeHero() {
         parseFloat(containerWidthPx) / parseFloat(rootFontSizePx);
 
       return containerWidthEm <= 38;
-    }
+    };
 
-    const attachSpanHoverListeners = () => {
-      spanHoverTLs.forEach(({ span, handlers }) => {
-        span.addEventListener('mouseenter', handlers.mouseenter);
-        span.addEventListener('mouseleave', handlers.mouseleave);
+    const attachBoldTextListeners = () => {
+      boldTextTLs.forEach(({ boldText, handlers }) => {
+        boldText.addEventListener('mouseenter', handlers.mouseenter);
+        boldText.addEventListener('mouseleave', handlers.mouseleave);
       });
     };
 
-    const detachSpanHoverListeners = () => {
-      spanHoverTLs.forEach(({ span, handlers }) => {
-        span.removeEventListener('mouseenter', handlers.mouseenter);
-        span.removeEventListener('mouseleave', handlers.mouseleave);
+    const detachBoldTextListeners = () => {
+      boldTextTLs.forEach(({ boldText, handlers }) => {
+        boldText.removeEventListener('mouseenter', handlers.mouseenter);
+        boldText.removeEventListener('mouseleave', handlers.mouseleave);
       });
     };
 
     const handleResize = () => {
       if (isMobileContainer()) {
-        detachSpanHoverListeners();
+        detachBoldTextListeners();
       } else {
-        attachSpanHoverListeners();
+        attachBoldTextListeners();
       }
     };
 
     window.addEventListener('resize', handleResize);
 
-    heroBolds.forEach((span, index) => {
+    // Hero Bold Images Animation
+    heroBoldTexts?.forEach((boldText, index) => {
       const relatedImages =
-        heroImages[index]?.querySelectorAll('.home_hero_image') || [];
-      const otherSpans = [...heroBolds].filter((s) => s !== span);
+        heroImages[index]?.querySelectorAll('.home_hero_image');
+      if (!relatedImages) return;
+      const otherBoldTexts = [...heroBoldTexts].filter((b) => b !== boldText);
 
-      const spanTL = gsap.timeline({
+      const boldTextTL = gsap.timeline({
         paused: true,
         defaults: { duration: 0.2 },
       });
-      spanTL.set(span, { zIndex: 5 });
-      spanTL.to(
+      boldTextTL.set(boldText, { zIndex: 5 });
+      boldTextTL.to(
         relatedImages,
         { opacity: 1, scale: 1.2, ease: 'power4.out' },
         0,
       );
-      spanTL.fromTo(
-        heroHeading,
+      boldTextTL.fromTo(
+        heading,
         { color: 'var(--_theme---text)' },
         { color: 'var(--_theme---text-faded)' },
         '<',
       );
-      spanTL.fromTo(
-        otherSpans,
+      boldTextTL.fromTo(
+        otherBoldTexts,
         { color: 'var(--color--brand-main)' },
         { color: 'var(--_theme---text-faded)' },
         '<',
       );
 
-      const mouseenterHandler = () => spanTL.timeScale(1).play();
-      const mouseleaveHandler = () => spanTL.timeScale(2).reverse();
+      const mouseenterHandler = () => boldTextTL.timeScale(1).play();
+      const mouseleaveHandler = () => boldTextTL.timeScale(2).reverse();
 
-      spanHoverTLs.push({
-        span,
-        timeline: spanTL,
+      boldTextTLs.push({
+        boldText,
+        timeline: boldTextTL,
         handlers: {
           mouseenter: mouseenterHandler,
           mouseleave: mouseleaveHandler,
@@ -138,32 +140,34 @@ export default function HomeHero() {
     if (window.pageYOffset === 0) {
       lenis?.stop?.();
 
+      // Hero Heading Text Intro Animation
       initialHeadingTL.fromTo(
         headingWords,
-        { opacity: 0, y: '1rem' },
+        { opacity: 0, y: '2rem' },
         {
           opacity: 1,
           y: '0em',
-          duration: 1,
-          stagger: { each: 0.02 },
+          duration: 1.5,
+          stagger: { each: 0.05 },
           onComplete: () => {
             lenis?.start?.();
-            if (!isMobileContainer()) attachSpanHoverListeners();
+            if (!isMobileContainer()) attachBoldTextListeners();
           },
         },
       );
 
+      gsap.set(heroRef.current, { visibility: 'visible' });
       setTimeout(() => initialHeadingTL.play(), 100);
-      gsap.set('.home_hero_heading_wrap', { visibility: 'visible' });
     } else {
-      gsap.set('.home_hero_heading_wrap', { visibility: 'visible' });
+      gsap.set(heroRef.current, { visibility: 'visible' });
     }
 
+    // Hero Heading Text Outro Animation
     outroHeadingTL.to(headingWords, {
       opacity: 0,
       y: '-10rem',
       stagger: { amount: 0.5 },
-      onStart: () => detachSpanHoverListeners(),
+      onStart: () => detachBoldTextListeners(),
     });
 
     ScrollTrigger.create({
@@ -171,7 +175,7 @@ export default function HomeHero() {
       start: 'top top',
       end: '20px top',
       onEnterBack: () => {
-        if (!isMobileContainer()) attachSpanHoverListeners();
+        if (!isMobileContainer()) attachBoldTextListeners();
       },
     });
 
@@ -179,7 +183,7 @@ export default function HomeHero() {
       window.removeEventListener('resize', handleResize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       gsap.killTweensOf('*');
-      detachSpanHoverListeners();
+      detachBoldTextListeners();
     };
   }, []);
 

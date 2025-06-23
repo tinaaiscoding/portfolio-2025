@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -22,22 +22,21 @@ const EXPERIENCES = [
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Experiences() {
-  const expSectionRef = useRef<HTMLElement | null>(null);
+  const expSectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const expSection = expSectionRef.current;
     if (!expSection) return;
 
-    const expItems = expSection.querySelectorAll<HTMLElement>(
-      '.exp_item_wrap',
-    );
+    const expItems = expSection.querySelectorAll<HTMLElement>('.exp_item_wrap');
+    if (!expItems.length) return;
 
-    const isSmallContainer = () => {
+    const isSmallContainer = (): boolean => {
       const containerWidthEm =
         parseFloat(getComputedStyle(expSection).width) /
         parseFloat(getComputedStyle(document.documentElement).fontSize);
       return containerWidthEm <= 48;
-    }
+    };
 
     const expSectionTL = gsap.timeline({
       scrollTrigger: {
@@ -84,7 +83,10 @@ export default function Experiences() {
     };
   }, []);
   return (
-    <section ref={expSectionRef} className='exp_wrap flex flex-col items-start justify-center'>
+    <section
+      ref={expSectionRef}
+      className='exp_wrap flex flex-col items-start justify-center'
+    >
       <div className='exp_contain u-container'>
         <div className='exp_heading'>
           <h2 className='u-text-style-display-secondary'>experience</h2>

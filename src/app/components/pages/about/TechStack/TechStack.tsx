@@ -30,6 +30,7 @@ gsap.registerPlugin(ScrollTrigger);
 export default function TechStack() {
   useEffect(() => {
     const techItems = document.querySelectorAll('.techstack_list_item');
+    if (!techItems.length) return;
 
     techItems.forEach((item, index) => {
       gsap.timeline({

@@ -36,34 +36,30 @@ export default function ProjectsHero() {
   const projectsSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const projectsSection = projectsSectionRef.current;
-    if (!projectsSection) return;
+    const section = projectsSectionRef.current;
+    if (!section) return;
 
-    const heading = projectsSection.querySelector('h2');
-    if (!heading) return;
-
-    const projectItems = projectsSection.querySelectorAll(
-      '.projects_item_wrap',
-    );
-    if (!projectItems) return;
+    const heading = section.querySelector('h2');
+    const projectItems = section.querySelectorAll('.projects_item_wrap');
+    if (!heading || !projectItems.length) return;
 
     const tl = gsap.timeline();
 
     // Heading & Project Item Intro Animation
-    tl.set(projectsSection, { visibility: 'visible' });
+    tl.set(section, { visibility: 'visible' });
     tl.fromTo(
-      heading,
+      heading as HTMLElement,
       { opacity: 0, y: '4rem' },
       { opacity: 1, y: '0em', duration: 0.4 },
     );
     tl.fromTo(
-      projectItems,
+      projectItems as NodeListOf<HTMLElement>,
       { opacity: 0, y: '4rem' },
-      { opacity: 1, y: '0em', duration: 0.5, stagger: { each: 0.3 } },
+      { opacity: 1, y: '0em', duration: 0.5, stagger: { each: 0.15 } },
     );
 
     // Project Item Hover Animation
-    projectItems.forEach((item, i) => {
+    projectItems?.forEach((item, i) => {
       const image = item.querySelector('.projects_item_image');
       if (!image) return;
 
@@ -101,13 +97,13 @@ export default function ProjectsHero() {
       });
     };
 
-    projectItems.forEach((item) => {
+    projectItems?.forEach((item) => {
       item.addEventListener('mousemove', (e) => handleMouseMove(e, item));
     });
 
     return () => {
       gsap.killTweensOf('*');
-      projectItems.forEach((item) => {
+      projectItems?.forEach((item) => {
         item.addEventListener('mousemove', (e) =>
           handleMouseMove(e as MouseEvent, item),
         );

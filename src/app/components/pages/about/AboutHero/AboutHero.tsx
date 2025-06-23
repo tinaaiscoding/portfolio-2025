@@ -12,8 +12,8 @@ import './AboutHero.css';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutHero() {
-  const aboutInfoRef = useRef<HTMLDivElement | null>(null);
-  const splitRef = useRef<SplitType | null>(null);
+  const aboutInfoRef = useRef<HTMLDivElement>(null);
+  const splitRef = useRef<SplitType>(null);
   const windowWidthRef = useRef<number>(0);
 
   useEffect(() => {
@@ -37,6 +37,7 @@ export default function AboutHero() {
       const heroLines = aboutInfoSection.querySelectorAll(
         '.about_hero_heading_line',
       );
+      if (!heroLines.length) return;
 
       const tl = gsap.timeline({
         scrollTrigger: {

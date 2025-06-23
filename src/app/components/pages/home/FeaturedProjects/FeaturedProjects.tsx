@@ -42,6 +42,7 @@ export default function FeaturedProjects() {
       if (!section) return;
 
       const projectItems = section.querySelectorAll('.featured_project_wrap');
+      if (!projectItems.length) return;
 
       const tl = gsap.timeline({
         paused: true,

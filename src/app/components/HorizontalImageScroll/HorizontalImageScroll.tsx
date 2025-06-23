@@ -24,6 +24,7 @@ export default function HorizontalImageScroll({ images }: Props) {
 
   useEffect(() => {
     const scrollTrack = scrollTrackRef.current;
+    if (!scrollTrack) return;
 
     let timeoutId: ReturnType<typeof setTimeout>;
 
