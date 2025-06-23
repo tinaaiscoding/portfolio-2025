@@ -2,6 +2,7 @@
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import 'lenis/dist/lenis.css';
 import { ReactLenis } from 'lenis/react';
 import { FC, useEffect, useRef } from 'react';
 
@@ -15,6 +16,7 @@ const LenisScrollProvider: FC<LenisScrollProviderProps> = ({ children }) => {
   const lenisRef = useRef(null);
 
   useEffect(() => {
+    if (!lenisRef.current) return;
     const lenisInstance = lenisRef.current?.lenis;
 
     if (lenisInstance) {

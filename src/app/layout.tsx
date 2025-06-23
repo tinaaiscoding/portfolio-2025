@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 
 import Footer from './components/Footer/Footer';
 import Navigation from './components/Navigation/Navigation';
+import ScrollReset from './components/ScrollReset/ScrollReset';
 import LenisScrollProvider from './lib/lenis-provider';
 import './styles/globals.css';
 
@@ -68,6 +69,7 @@ export default function RootLayout({
       <html lang='en' className={`${fonts}`}>
         <body className='antialiased'>
           {process.env.NODE_ENV === 'development' && <GridOverlay />}
+          <ScrollReset />
           <Navigation />
           {children}
           <Footer />

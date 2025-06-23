@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 import Dot from '../../../../public/images/icons/dot.svg';
 import TinaVo from '../../../../public/images/icons/tina-vo.svg';
-
 import './Navbar.css';
 
 export const NavbarDesktop = () => {
@@ -55,11 +54,13 @@ export const NavbarMobile = () => {
             <TinaVo className='navbar_brand_svg' />
           </Link>
 
-          <Hamburger
-            label='Show menu'
-            rounded={true}
-            onToggle={handleOnToggleMenu}
-          />
+          <div className={`navbar_hamburger_wrap ${menuOpen ? 'open' : ''}`}>
+            <Hamburger
+              label='Show menu'
+              rounded={true}
+              onToggle={handleOnToggleMenu}
+            />
+          </div>
         </div>
       </div>
       {menuOpen ? (

@@ -35,12 +35,14 @@
   transform: scale(1);
 }
 
-.navbar_overlay {
+.navbar_overlay.is-mobile {
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   overflow: hidden;
+  background-color: var(--_theme---background);
+  height: 100vh;
 }
 
 .navbar.is-mobile {
@@ -70,7 +72,7 @@
   height: 1rem;
 }
 
-.navbar_item_layout.is-mobile:hover > a {
+.navbar_item_wrap:hover .navbar_item_layout.is-mobile > a {
   transform: translate(0.3rem);
 }
 
