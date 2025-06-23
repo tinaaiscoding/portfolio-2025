@@ -59,6 +59,7 @@ export default function TechStack() {
 
   return (
     <section className='techstack_wrap'>
+      <div className='techstack_info_gradient'></div>
       <div className='techstack_contain u-container'>
         <div className='techstack_heading_wrap'>
           <div className='techstack_heading'>

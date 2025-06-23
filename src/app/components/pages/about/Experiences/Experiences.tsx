@@ -38,16 +38,14 @@ export default function Experiences() {
       return containerWidthEm <= 48;
     };
 
-    const expSectionTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: expSection,
-        start: 'top top',
-        end: '+=70%',
-        scrub: true,
-        pin: true,
-        pinSpacing: isSmallContainer(),
-        id: 'exp',
-      },
+    let expSectionST = ScrollTrigger.create({
+      trigger: expSection,
+      start: 'top top',
+      end: '+=70%',
+      scrub: true,
+      pin: true,
+      pinSpacing: isSmallContainer(),
+      id: 'exp',
     });
 
     const expLineTL = gsap.timeline({
@@ -71,8 +69,24 @@ export default function Experiences() {
       },
     );
 
+    let timeoutId: ReturnType<typeof setTimeout>;
+
     const handleResize = () => {
-      ScrollTrigger.refresh();
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        // Fully removes the expSectionST and recreates it to recalculate the pinSpacing on resize
+        expSectionST.kill();
+        expSectionST = ScrollTrigger.create({
+          trigger: expSection,
+          start: 'top top',
+          end: '+=70%',
+          scrub: true,
+          pin: true,
+          pinSpacing: isSmallContainer(),
+          id: 'exp',
+        });
+        ScrollTrigger.refresh(true);
+      }, 200);
     };
 
     window.addEventListener('resize', handleResize);
@@ -80,6 +94,7 @@ export default function Experiences() {
     return () => {
       window.removeEventListener('resize', handleResize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      clearTimeout(timeoutId);
     };
   }, []);
   return (

@@ -12,16 +12,26 @@ import './AboutHero.css';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutHero() {
+  const aboutSectionRef = useRef<HTMLDivElement>(null);
   const aboutInfoRef = useRef<HTMLDivElement>(null);
   const splitRef = useRef<SplitType>(null);
   const windowWidthRef = useRef<number>(0);
 
   useEffect(() => {
+    const section = aboutSectionRef.current;
     const aboutInfoSection = aboutInfoRef.current;
-    if (!aboutInfoSection) return;
+    if (!aboutInfoSection || !section) return;
 
+    const heading = section.querySelector('h2');
     const paragraph = aboutInfoSection.querySelector('p');
     if (!paragraph) return;
+
+    gsap.set(section, { visibility: 'visible' });
+    gsap.fromTo(
+      heading,
+      { opacity: 0, y: '4rem' },
+      { opacity: 1, y: '0em', duration: 0.4 },
+    );
 
     const runSplit = () => {
       splitRef.current?.revert();
@@ -29,7 +39,7 @@ export default function AboutHero() {
         types: 'lines',
         lineClass: 'about_hero_heading_line',
       });
-      gsap.set(aboutInfoSection, { visibility: 'visible' });
+
       headingScroll();
     };
 
@@ -39,16 +49,31 @@ export default function AboutHero() {
       );
       if (!heroLines.length) return;
 
-      const tl = gsap.timeline({
+      const introTl = gsap.timeline({
         scrollTrigger: {
           trigger: aboutInfoSection,
-          start: 'top 60%',
+          start: 'top 85%',
           end: 'bottom center',
           scrub: 1,
         },
       });
 
-      tl.to(heroLines, {
+      introTl.fromTo(
+        heroLines,
+        { opacity: 0, y: '3rem' },
+        { opacity: 1, y: '0em', duration: 0.5, stagger: { each: 0.15 } },
+      );
+
+      const highlightTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: aboutInfoSection,
+          start: 'top 50%',
+          end: 'bottom center',
+          scrub: 1,
+        },
+      });
+
+      highlightTl.to(heroLines, {
         '--line-width': '100%',
         duration: 1,
         stagger: 0.4,
@@ -76,7 +101,7 @@ export default function AboutHero() {
   }, []);
 
   return (
-    <section className='about_hero_wrap'>
+    <section ref={aboutSectionRef} className='about_hero_wrap'>
       <div className='about_hero_contain u-container'>
         <div className='about_hero_layout'>
           <div className='about_hero_heading'>

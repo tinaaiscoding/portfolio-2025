@@ -6,6 +6,10 @@
   container-type: inline-size;
 }
 
+.techstack_info_gradient {
+  display: none;
+}
+
 .techstack_heading_wrap {
   align-items: center;
   width: 100%;
@@ -31,4 +35,43 @@
 
 .techstack_list_item.active {
   opacity: 1;
+}
+
+@container (width <= 48em) {
+  .techstack_heading_wrap {
+    z-index: 2;
+    flex-flow: column;
+    align-items: flex-start;
+    height: 100%;
+    top: 3rem;
+  }
+  .techstack_info_gradient {
+    z-index: 1;
+    background-image: linear-gradient(
+      180deg,
+      var(--_theme---background) 84%,
+      #fff0
+    );
+    width: 100%;
+    height: 12rem;
+    display: block;
+    position: sticky;
+    top: 0;
+  }
+
+  .techstack_heading {
+    z-index: 2;
+    margin-top: var(--size--1rem);
+    margin-bottom: var(--size--1rem);
+    position: relative;
+  }
+
+  .techstack_info_wrap {
+    position: relative;
+  }
+
+  .techstack_list_wrap {
+    padding-bottom: 9vh;
+    padding-left: 0;
+  }
 }

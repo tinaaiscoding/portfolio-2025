@@ -48,12 +48,12 @@ export default function ProjectsHero() {
     // Heading & Project Item Intro Animation
     tl.set(section, { visibility: 'visible' });
     tl.fromTo(
-      heading as HTMLElement,
+      heading,
       { opacity: 0, y: '4rem' },
       { opacity: 1, y: '0em', duration: 0.4 },
     );
     tl.fromTo(
-      projectItems as NodeListOf<HTMLElement>,
+      projectItems,
       { opacity: 0, y: '4rem' },
       { opacity: 1, y: '0em', duration: 0.5, stagger: { each: 0.15 } },
     );
@@ -98,7 +98,9 @@ export default function ProjectsHero() {
     };
 
     projectItems?.forEach((item) => {
-      item.addEventListener('mousemove', (e) => handleMouseMove(e, item));
+      item.addEventListener('mousemove', (e) =>
+        handleMouseMove(e as MouseEvent, item),
+      );
     });
 
     return () => {

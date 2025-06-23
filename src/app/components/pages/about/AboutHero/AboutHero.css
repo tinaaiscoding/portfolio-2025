@@ -1,3 +1,6 @@
+.about_hero_wrap {
+  visibility: hidden;
+}
 .about_hero_layout {
   padding-top: 70vh;
 }
@@ -11,7 +14,7 @@
 }
 
 .about_hero_text {
-    color: var(--color--brand-main);
+  color: var(--color--brand-main);
 }
 
 .about_hero_heading_line {
