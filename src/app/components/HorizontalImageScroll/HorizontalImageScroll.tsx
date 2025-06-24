@@ -6,17 +6,12 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import './HorizontalImageScroll.css';
+import { ProjectImageType } from '@/app/data/projects';
 
 gsap.registerPlugin(ScrollTrigger);
 
-type ImageData = {
-  src: string;
-  width: string; // e.g., '300px' or '30vw'
-  alt: string;
-};
-
 type Props = {
-  images: ImageData[];
+  images: ProjectImageType[];
 };
 
 export default function HorizontalImageScroll({ images }: Props) {
@@ -75,7 +70,7 @@ export default function HorizontalImageScroll({ images }: Props) {
               src={img.src}
               alt={img.alt}
               fill
-              sizes={img.width}
+              sizes="100vw"
               style={{ objectFit: 'cover' }}
             />
           </div>

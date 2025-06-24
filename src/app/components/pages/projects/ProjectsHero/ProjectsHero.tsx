@@ -6,31 +6,9 @@ import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
 import SectionSpacing from '@/app/components/SectionSpacing/SectionSpacing';
+import { projects } from '@/app/data/projects';
 
 import './ProjectsHero.css';
-
-const PROJECTS = [
-  {
-    title: 'MNTN',
-    skills: ['Web Development', 'Webflow'],
-    image: '/images/mntn-1.png',
-  },
-  {
-    title: 'Portfolio (2023)',
-    skills: ['React', 'Web Development', 'Web Design'],
-    image: '/images/portfolio-1.png',
-  },
-  {
-    title: 'jetia',
-    skills: ['React', 'Web Development'],
-    image: '/images/jetia-1.png',
-  },
-  {
-    title: 'PokéBattles',
-    skills: ['React', 'Web Development'],
-    image: '/images/pokemon-1.png',
-  },
-];
 
 export default function ProjectsHero() {
   const projectsSectionRef = useRef<HTMLDivElement>(null);
@@ -122,13 +100,13 @@ export default function ProjectsHero() {
         </div>
         <div className='projects_list_wrap'>
           <ul className='projects_list'>
-            {PROJECTS.map((project, i) => {
+            {projects.map((project, i) => {
               return (
                 <li key={i} className='projects_item_wrap'>
-                  <Link href='/'>
+                  <Link href={`/projects/${project.slug}`}>
                     <Image
                       className='projects_item_image'
-                      src={project.image}
+                      src={project.images[0].src}
                       alt={project.title}
                       width={441}
                       height={248}

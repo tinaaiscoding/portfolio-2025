@@ -1,19 +1,13 @@
 import Image from 'next/image';
 
+import { ProjectType } from '@/app/data/projects';
+
 import SectionSpacing from '../../../SectionSpacing/SectionSpacing';
 import TextBubble from '../../../TextBubble/TextBubble';
 import './FeaturedProject.css';
 
-type Project = {
-  title: string;
-  skills: string[];
-  img: string;
-  bgColor: string;
-  textColor: string;
-};
-
 type Props = {
-  project: Project;
+  project: ProjectType;
 };
 
 export default function FeaturedProject({ project }: Props) {
@@ -36,8 +30,8 @@ export default function FeaturedProject({ project }: Props) {
           <div className='featured_project_image_wrap flex flex-col items-center justify-center'>
             <div className='featured_project_image'>
               <Image
-                src={project.img}
-                alt='jetia landing page'
+                src={project.images[0].src}
+                alt={project.title}
                 fill
                 sizes='75vw'
               />

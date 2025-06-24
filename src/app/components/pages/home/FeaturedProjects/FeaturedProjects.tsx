@@ -4,38 +4,18 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
 
+import { projects } from '@/app/data/projects';
+
 import FeaturedProject from './FeaturedProject';
 import './FeaturedProjects.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const PROJECTS = [
-  {
-    title: 'jetia',
-    skills: ['React', 'Web Development'],
-    img: '/images/jetia-1.png',
-    bgColor: '#df7496',
-    textColor: 'var( --color--dark)',
-  },
-  {
-    title: 'PokéBattles',
-    skills: ['React', 'Web Development'],
-    img: '/images/pokemon-1.png',
-    bgColor: '#ffe030',
-    textColor: 'var( --color--dark)',
-  },
-  {
-    title: 'MNTN',
-    skills: ['Web Development', 'Webflow'],
-    img: '/images/mntn-1.png',
-    bgColor: '#0b1d26',
-    textColor: 'var(--color--light)',
-  },
-];
-
 export default function FeaturedProjects() {
   const projectListRef = useRef<HTMLDivElement>(null);
 
+  const featuredProjects = projects.filter((p) => p.featured === true);
+  
   useEffect(() => {
     const ctx = gsap.context(() => {
       const section = projectListRef.current;
@@ -68,7 +48,7 @@ export default function FeaturedProjects() {
 
   return (
     <section ref={projectListRef} className='featured_projects_wrap'>
-      {PROJECTS.map((project, i) => {
+      {featuredProjects.map((project, i) => {
         return (
           <section key={i} className='featured_projects_item_wrap'>
             <FeaturedProject project={project} />
