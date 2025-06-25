@@ -1,64 +1,41 @@
 'use client';
 
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+
+import { techStack } from '@/app/data/techStack';
+import { ScrollTrigger } from '@/app/lib/gsap';
+import { techItemsAnimation } from '@/app/utils/animation/about';
+import { debouncedResizeListener } from '@/app/utils/helpers';
 
 import './TechStack.css';
 
-const TECH_STACK = [
-  'API',
-  'Express.js',
-  'Git',
-  'GraphQL',
-  'GSAP',
-  'HTML/CSS',
-  'Javascript',
-  'Node.js',
-  'PostgreSQL',
-  'Python',
-  'React',
-  'React Native',
-  'Shopify/Liquid',
-  'Tailwind',
-  'Typescript',
-  'Webflow/Lumos',
-];
-
-gsap.registerPlugin(ScrollTrigger);
-
 export default function TechStack() {
-  useEffect(() => {
-    const techItems = document.querySelectorAll('.techstack_list_item');
-    if (!techItems.length) return;
+  const techStackSectionRef = useRef<HTMLElement>(null);
+  const techTriggerRefs = useRef<ScrollTrigger[]>([]);
 
-    techItems.forEach((item, index) => {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: item,
-          start: 'top center',
-          end: 'bottom center',
-          scrub: true,
-          id: `tech-line-${index}`,
-          onEnter: () => {
-            techItems.forEach((el) => el.classList.remove('active'));
-            item.classList.add('active');
-          },
-          onEnterBack: () => {
-            techItems.forEach((el) => el.classList.remove('active'));
-            item.classList.add('active');
-          },
-        },
-      });
+  useEffect(() => {
+    const section = techStackSectionRef.current;
+    if (!section) return;
+
+    techItemsAnimation(section, techTriggerRefs.current);
+
+    const resizeCleanup = debouncedResizeListener(() => {
+      techTriggerRefs.current.forEach((t) => t.kill());
+      techTriggerRefs.current = [];
+
+      techItemsAnimation(section, techTriggerRefs.current);
+
+      ScrollTrigger.refresh(true);
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      resizeCleanup();
+      techTriggerRefs.current.forEach((t) => t.kill());
     };
   }, []);
 
   return (
-    <section className='techstack_wrap'>
+    <section ref={techStackSectionRef} className='techstack_wrap'>
       <div className='techstack_info_gradient'></div>
       <div className='techstack_contain u-container'>
         <div className='techstack_heading_wrap'>
@@ -69,7 +46,7 @@ export default function TechStack() {
         <div className='techstack_info_wrap'>
           <div className='techstack_list_wrap'>
             <ul className='techstack_list'>
-              {TECH_STACK.map((item, i) => {
+              {techStack.map((item, i) => {
                 return (
                   <li key={i} className='techstack_list_item'>
                     <p className='u-text-style-display-primary'>{item}</p>

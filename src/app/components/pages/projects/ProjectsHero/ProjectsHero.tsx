@@ -1,12 +1,16 @@
 'use client';
 
-import gsap from 'gsap';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
 import SectionSpacing from '@/app/components/SectionSpacing/SectionSpacing';
 import { projects } from '@/app/data/projects';
+import {
+  introAnimation,
+  projectItemHover,
+  projectItemMouseMove,
+} from '@/app/utils/animation/projects';
 
 import './ProjectsHero.css';
 
@@ -17,77 +21,14 @@ export default function ProjectsHero() {
     const section = projectsSectionRef.current;
     if (!section) return;
 
-    const heading = section.querySelector('h2');
-    const projectItems = section.querySelectorAll('.projects_item_wrap');
-    if (!heading || !projectItems.length) return;
-
-    const tl = gsap.timeline();
-
-    // Heading & Project Item Intro Animation
-    tl.set(section, { visibility: 'visible' });
-    tl.fromTo(
-      heading,
-      { opacity: 0, y: '4rem' },
-      { opacity: 1, y: '0em', duration: 0.4 },
-    );
-    tl.fromTo(
-      projectItems,
-      { opacity: 0, y: '4rem' },
-      { opacity: 1, y: '0em', duration: 0.5, stagger: { each: 0.15 } },
-    );
-
-    // Project Item Hover Animation
-    projectItems?.forEach((item, i) => {
-      const image = item.querySelector('.projects_item_image');
-      if (!image) return;
-
-      item.addEventListener('mouseenter', () => {
-        gsap.to(image, { opacity: 1, duration: 0.6, ease: 'sine.out' });
-        gsap.to(projectItems, {
-          opacity: (el) => (el === i ? 1 : 0.3),
-          duration: 0.6,
-          ease: 'sine.out',
-        });
-      });
-
-      item.addEventListener('mouseleave', () => {
-        gsap.to(image, { opacity: 0, duration: 0.6, ease: 'sine.out' });
-        gsap.to(projectItems, { opacity: 1, duration: 0.6, ease: 'sine.out' });
-      });
-    });
-
-    // Project Item Mouse Move Mouse Move Animation
-    const handleMouseMove = (e: MouseEvent, item: Element) => {
-      const image = item.querySelector('.projects_item_image');
-      if (!image) return;
-
-      const rect = item.getBoundingClientRect();
-
-      const relX = e.clientX - rect.left;
-      const relY = e.clientY - rect.top;
-
-      gsap.set(image, { xPercent: -50, yPercent: -50 });
-      gsap.to(image, {
-        x: relX,
-        y: relY,
-        duration: 1,
-        ease: 'power3.out',
-      });
-    };
-
-    projectItems?.forEach((item) => {
-      item.addEventListener('mousemove', (e) =>
-        handleMouseMove(e as MouseEvent, item),
-      );
-    });
+    introAnimation(section);
+    projectItemHover(section);
+    projectItemMouseMove(section);
 
     return () => {
-      gsap.killTweensOf('*');
-      projectItems?.forEach((item) => {
-        item.addEventListener('mousemove', (e) =>
-          handleMouseMove(e as MouseEvent, item),
-        );
-      });
+      introAnimation(section)?.kill();
+      projectItemHover(section)?.();
+      projectItemMouseMove(section)?.();
     };
   }, []);
 

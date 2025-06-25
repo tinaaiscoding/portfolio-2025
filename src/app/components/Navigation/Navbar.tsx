@@ -3,7 +3,7 @@
 import { Turn as Hamburger } from 'hamburger-react';
 import Link from 'next/link';
 
-import { useNavbar } from '@/app/hooks/useNavbar';
+import { useNavbar } from '@/app/utils/useNavbar';
 
 import Dot from '../../../../public/images/icons/dot.svg';
 import TinaVo from '../../../../public/images/icons/tina-vo.svg';

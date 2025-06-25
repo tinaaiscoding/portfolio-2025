@@ -1,100 +1,34 @@
 'use client';
 
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
+
+import { experiences } from '@/app/data/experiences';
+import { ScrollTrigger } from '@/app/lib/gsap';
+import { expItemAnimation, expSectionST } from '@/app/utils/animation/about';
+import { debouncedResizeListener } from '@/app/utils/helpers';
 
 import './Experiences.css';
 
-const EXPERIENCES = [
-  {
-    employer: 'Pixel Technologies',
-    role: 'fullstack developer',
-    date: '11.2023 / 03.2025',
-  },
-  {
-    employer: 'General Assembly',
-    role: 'instructor associate',
-    date: '03.2023 / 11.2023',
-  },
-];
-
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Experiences() {
   const expSectionRef = useRef<HTMLElement>(null);
+  const expSectionSTRef = useRef<ScrollTrigger | null>(null);
 
   useEffect(() => {
-    const expSection = expSectionRef.current;
-    if (!expSection) return;
+    const section = expSectionRef.current;
+    if (!section) return;
 
-    const expItems = expSection.querySelectorAll<HTMLElement>('.exp_item_wrap');
-    if (!expItems.length) return;
+    expSectionSTRef.current = expSectionST(section);
+    expItemAnimation(section);
 
-    const isSmallContainer = (): boolean => {
-      const containerWidthEm =
-        parseFloat(getComputedStyle(expSection).width) /
-        parseFloat(getComputedStyle(document.documentElement).fontSize);
-      return containerWidthEm <= 48;
-    };
-
-    let expSectionST = ScrollTrigger.create({
-      trigger: expSection,
-      start: 'top top',
-      end: '+=70%',
-      scrub: true,
-      pin: true,
-      pinSpacing: isSmallContainer(),
-      id: 'exp',
+    const resizeCleanup = debouncedResizeListener(() => {
+      expSectionSTRef.current?.kill();
+      expSectionSTRef.current = expSectionST(section);
+      ScrollTrigger.refresh(true);
     });
-
-    const expLineTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: expSection,
-        start: 'top top',
-        end: '40% top',
-        scrub: true,
-        id: 'item',
-      },
-    });
-
-    expLineTL.fromTo(
-      expItems,
-      { opacity: 0, y: '4rem' },
-      {
-        opacity: 1,
-        y: '0em',
-        duration: 3,
-        stagger: 1,
-      },
-    );
-
-    let timeoutId: ReturnType<typeof setTimeout>;
-
-    const handleResize = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        // Fully removes the expSectionST and recreates it to recalculate the pinSpacing on resize
-        expSectionST.kill();
-        expSectionST = ScrollTrigger.create({
-          trigger: expSection,
-          start: 'top top',
-          end: '+=70%',
-          scrub: true,
-          pin: true,
-          pinSpacing: isSmallContainer(),
-          id: 'exp',
-        });
-        ScrollTrigger.refresh(true);
-      }, 200);
-    };
-
-    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      resizeCleanup();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      clearTimeout(timeoutId);
     };
   }, []);
   return (
@@ -107,7 +41,7 @@ export default function Experiences() {
           <h2 className='u-text-style-display-secondary'>experience</h2>
         </div>
         <div className='exp_info'>
-          {EXPERIENCES.map((exp, i) => {
+          {experiences.map((exp, i) => {
             return (
               <div key={i} className='exp_item_wrap grid auto-cols-fr'>
                 <div className='exp_item_heading'>

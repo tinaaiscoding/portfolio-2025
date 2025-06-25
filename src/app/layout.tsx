@@ -5,8 +5,8 @@ import localFont from 'next/font/local';
 import Footer from './components/Footer/Footer';
 import Navigation from './components/Navigation/Navigation';
 import ScrollReset from './components/ScrollReset/ScrollReset';
-import { NavbarProvider } from './hooks/useNavbar';
-import LenisScrollProvider from './lib/lenis-provider';
+import { NavbarProvider } from './utils/useNavbar';
+import LenisScrollProvider from './lib/lenisProvider';
 import './styles/globals.css';
 
 const GridOverlay =

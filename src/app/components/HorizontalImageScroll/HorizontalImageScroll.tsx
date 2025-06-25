@@ -5,8 +5,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
-import './HorizontalImageScroll.css';
 import { ProjectImageType } from '@/app/data/projects';
+import { scrollAnimation } from '@/app/utils/animation/horizontalImageScroll';
+import { debouncedResizeListener } from '@/app/utils/helpers';
+
+import './HorizontalImageScroll.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,39 +24,15 @@ export default function HorizontalImageScroll({ images }: Props) {
     const scrollTrack = scrollTrackRef.current;
     if (!scrollTrack) return;
 
-    let timeoutId: ReturnType<typeof setTimeout>;
-
-    const handleResize = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        ScrollTrigger.refresh(true);
-      }, 200);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    const ctx = gsap.context(() => {
-      if (scrollTrack) {
-        gsap.to(scrollTrack, {
-          x: () => window.innerWidth - scrollTrack.scrollWidth,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: scrollTrack,
-            start: 'top top',
-            end: () => `${scrollTrack.scrollWidth - window.innerWidth}px`,
-            scrub: 1,
-            pin: true,
-            anticipatePin: 2,
-            invalidateOnRefresh: true,
-          },
-        });
-      }
+    scrollAnimation(scrollTrack);
+    
+    const resizeCleanup = debouncedResizeListener(() => {
+      ScrollTrigger.refresh(true);
     });
 
     return () => {
-      ctx.revert();
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(timeoutId);
+      resizeCleanup();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
@@ -70,7 +49,7 @@ export default function HorizontalImageScroll({ images }: Props) {
               src={img.src}
               alt={img.alt}
               fill
-              sizes="100vw"
+              sizes='100vw'
               style={{ objectFit: 'cover' }}
             />
           </div>

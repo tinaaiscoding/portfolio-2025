@@ -1,0 +1,18 @@
+export const techStack: string[] = [
+  'API',
+  'Express.js',
+  'Git',
+  'GraphQL',
+  'GSAP',
+  'HTML/CSS',
+  'Javascript',
+  'Node.js',
+  'PostgreSQL',
+  'Python',
+  'React',
+  'React Native',
+  'Shopify/Liquid',
+  'Tailwind',
+  'Typescript',
+  'Webflow/Lumos',
+];

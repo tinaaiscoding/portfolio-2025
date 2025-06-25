@@ -47,11 +47,7 @@ export const projects: ProjectType[] = [
       },
     ],
     slug: 'mntn',
-    description: ` A responsive landing page built in Webflow, leveraging the
-                  Lumos framework for a flexible, modern design. Includes
-                  customised components and tailored styling to enhance user
-                  experience across all devices, with attention to clean
-                  layouts and seamless functionality.`,
+    description: `A responsive landing page built in Webflow, leveraging the Lumos framework for a flexible, modern design. Includes customised components and tailored styling to enhance user experience across all devices, with attention to clean layouts and seamless functionality.`,
     bgColor: '#0b1d26',
     textColor: 'var(--color--light)',
     featured: true,
@@ -82,11 +78,7 @@ export const projects: ProjectType[] = [
       },
     ],
     slug: 'portfolio23',
-    description: ` A responsive landing page built in Webflow, leveraging the
-                  Lumos framework for a flexible, modern design. Includes
-                  customised components and tailored styling to enhance user
-                  experience across all devices, with attention to clean
-                  layouts and seamless functionality.`,
+    description: `Created a MacOS-inspired portfolio using React, featuring draggable windows and clickable components for a playful desktop-like experience. Focused on interactivity and UI detail, this project showcased creativity and technical skill while highlighting a personal passion for immersive, engaging design.`,
     bgColor: '#000000',
     textColor: 'var( --color--light)',
     featured: false,
@@ -122,11 +114,7 @@ export const projects: ProjectType[] = [
       },
     ],
     slug: 'jetia',
-    description: ` A responsive landing page built in Webflow, leveraging the
-                  Lumos framework for a flexible, modern design. Includes
-                  customised components and tailored styling to enhance user
-                  experience across all devices, with attention to clean
-                  layouts and seamless functionality.`,
+    description: `A responsive website for a fictional digital agency, created during a three-day hackathon. Built with React and designed in collaboration with UX/UI designers, the site showcases the agency’s made-up services, portfolio, and team. Focused on clean design, usability, and mobile responsiveness to reflect a polished, professional brand presence.`,
     bgColor: '#df7496',
     textColor: 'var( --color--dark)',
     featured: true,
@@ -162,11 +150,7 @@ export const projects: ProjectType[] = [
       },
     ],
     slug: 'pokebattles',
-    description: ` A responsive landing page built in Webflow, leveraging the
-                  Lumos framework for a flexible, modern design. Includes
-                  customised components and tailored styling to enhance user
-                  experience across all devices, with attention to clean
-                  layouts and seamless functionality.`,
+    description: `A browser-based game inspired by Pokémon, built with Express and Node.js. Users can choose a starter Pokémon, view their collection, catch new ones, and battle opponents. The app features dynamic interactions and a playful interface designed to capture the feel of classic Pokémon gameplay.`,
     bgColor: '#ffe030',
     textColor: 'var( --color--dark)',
     featured: true,
