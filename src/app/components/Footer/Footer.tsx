@@ -6,23 +6,42 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <footer className='footer_wrap flex flex-col items-start justify-between'>
+    <footer
+      id='contact'
+      className='footer_wrap flex flex-col items-start justify-between'
+    >
       <SectionSpacing variant='small' />
       <div className='footer_contain u-container flex flex-col'>
         <div className='footer_layout flex flex-1 flex-col items-stretch justify-between'>
-          <div className='footer_text_wrap flex flex-col items-start justify-between'>
-            <div className='u-text-style-large'>
-              <p>
-                Interested in collaborating on a project, have questions, or
-                just want to say hello? I'd love to hear from you!
-              </p>
+          <div className='footer_text_wrap grid auto-cols-fr'>
+            <div className='footer_message_wrap flex flex-col items-start justify-between'>
+              <div>
+                <p className='u-text-style-large'>
+                  Interested in collaborating on a project, have questions, or
+                  just want to say hello? I'd love to hear from you!
+                </p>
+              </div>
+              <div>
+                <Link
+                  href={'mailto:tinavo.webdev@gmail.com'}
+                  className='u-text-style-large'
+                >
+                  tinavo.webdev@gmail.com
+                </Link>
+              </div>
             </div>
-            <div className='u-text-style-large'>
-              <p>placeholder(at)gmail.com</p>
+            <div className='footer_acknowledgment_text flex flex-row justify-end'>
+              <p className='u-text-style-small'>
+                I would like to acknowledge the Wurundjeri people as the
+                Traditional owners of the Kulin Nation on which I live and work.
+                I pay my respects to Elders past, present and emerging, and
+                acknowledge Aboriginal and Torres Strait Islanders as the first
+                people of Australia.
+              </p>
             </div>
           </div>
           <div className='footer_nav_wrap'>
-            <div className='footer_links_wrap grid auto-cols-fr'>
+            <div className='footer_links_wrap grid auto-cols-fr grid-cols-2'>
               <ul className='footer_links_column flex flex-row items-start'>
                 <li className='footer_links_item'>
                   <Link href='/' className='footer_links_link'>

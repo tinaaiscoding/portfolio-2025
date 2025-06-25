@@ -16,8 +16,19 @@
 }
 
 .footer_text_wrap {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr));
+  grid-row-gap: var(--_spacing---space--8);
+  grid-column-gap: var(--_spacing---space--8);
+}
+
+.footer_message_wrap {
   width: var(--column-width--5);
   grid-row-gap: var(--_spacing---space--8);
+}
+
+.footer_acknowledgment_text p {
+  width: var(--column-width--4);
+  text-align: right;
 }
 
 .footer_nav_wrap {
@@ -45,9 +56,14 @@
 
 /* Tablet and smaller */
 @container (width < 60rem) {
-  .footer_text_wrap {
+  .footer_message_wrap {
     width: var(--column-width--12);
     text-wrap: wrap;
+  }
+  
+  .footer_acknowledgment_text p {
+    width: var(--column-width--12);
+    text-align: left;
   }
 }
 
