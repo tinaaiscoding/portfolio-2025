@@ -38,8 +38,8 @@ export default function FeaturedProjects() {
       projectItems.forEach((item, index) => {
         if (index > 0) {
           tl.from(item, { yPercent: 100 });
-          tl.to({}, { duration: 0.5 }); // Spacer between animations
         }
+        tl.to({}, { duration: 0.5 }); // Spacer between animations
       });
     }, projectListRef);
 

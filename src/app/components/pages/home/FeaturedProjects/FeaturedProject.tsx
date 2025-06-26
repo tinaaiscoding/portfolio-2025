@@ -18,6 +18,7 @@ export default function FeaturedProject({ project }: Props) {
     >
       <div className='featured_project_contain flex flex-col items-center justify-center'>
         <SectionSpacing variant='small' />
+
         <div className='featured_project_layout u-container flex flex-col items-start justify-between'>
           <h2 className='featured_project_heading u-text-style-h2'>
             {project.title}
