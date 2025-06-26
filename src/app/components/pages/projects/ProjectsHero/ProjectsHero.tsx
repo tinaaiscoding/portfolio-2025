@@ -11,6 +11,10 @@ import {
   projectItemHover,
   projectItemMouseMove,
 } from '@/app/utils/animation/projects';
+import {
+  debouncedResizeListener,
+  isMobileContainer,
+} from '@/app/utils/helpers';
 
 import './ProjectsHero.css';
 
@@ -21,14 +25,38 @@ export default function ProjectsHero() {
     const section = projectsSectionRef.current;
     if (!section) return;
 
-    introAnimation(section);
-    projectItemHover(section);
-    projectItemMouseMove(section);
+    const introTl = introAnimation(section);
+
+    let hoverCleanup: (() => void) | undefined;
+    let moveCleanup: (() => void) | undefined;
+
+    const attachListeners = () => {
+      if (!isMobileContainer(section)) {
+        hoverCleanup = projectItemHover(section);
+        moveCleanup = projectItemMouseMove(section);
+      }
+    };
+
+    const detachListeners = () => {
+      hoverCleanup?.();
+      moveCleanup?.();
+    };
+
+    attachListeners();
+
+    const resizeCleanup = debouncedResizeListener(() => {
+      if (isMobileContainer(section)) {
+        detachListeners();
+      } else {
+        detachListeners();
+        attachListeners();
+      }
+    });
 
     return () => {
-      introAnimation(section)?.kill();
-      projectItemHover(section)?.();
-      projectItemMouseMove(section)?.();
+      resizeCleanup();
+      introTl?.kill();
+      detachListeners();
     };
   }, []);
 

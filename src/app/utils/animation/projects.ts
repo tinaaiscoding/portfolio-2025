@@ -48,7 +48,7 @@ export const projectItemHover = (section: HTMLElement) => {
       gsap.to(projectItems, { opacity: 1, duration: 0.6, ease: 'sine.out' });
     };
 
-    item.addEventListener('mousemove', handleMouseEnter);
+    item.addEventListener('mouseenter', handleMouseEnter);
     item.addEventListener('mouseleave', handleMouseLeave);
 
     listenerCleanupFns.push(() => {
