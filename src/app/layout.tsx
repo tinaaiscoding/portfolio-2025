@@ -5,9 +5,9 @@ import localFont from 'next/font/local';
 import Footer from './components/Footer/Footer';
 import Navigation from './components/Navigation/Navigation';
 import ScrollReset from './components/ScrollReset/ScrollReset';
-import { NavbarProvider } from './utils/useNavbar';
 import LenisScrollProvider from './lib/lenisProvider';
 import './styles/globals.css';
+import { NavbarProvider } from './utils/useNavbar';
 
 const GridOverlay =
   process.env.NODE_ENV === 'development'
@@ -56,8 +56,9 @@ const generalSans = localFont({
 const fonts = `${generalSans.variable} ${cabinetGrotesk.variable}`;
 
 export const metadata: Metadata = {
-  title: "Tina's Portfolio",
-  description: "Tina's Portfolio 2025",
+  title: 'Tina Vo | Creative Web Developer Melbourne',
+  description:
+    'Tina Vo is a frontend web developer based in Melbourne, creating modern, engaging, and accessible websites with a focus on user experience and creativity.',
 };
 
 export default function RootLayout({

@@ -6,9 +6,10 @@ export type ProjectImageType = {
 
 export type ProjectType = {
   title: string;
+  slug: string;
+  metaDescription: string;
   skills: string[];
   images: ProjectImageType[];
-  slug: string;
   description: string;
   bgColor: string;
   textColor: string;
@@ -18,6 +19,9 @@ export type ProjectType = {
 export const projects: ProjectType[] = [
   {
     title: 'MNTN',
+    slug: 'mntn',
+    metaDescription:
+      'A responsive landing page built in Webflow with the Lumos framework, featuring custom components and clean, modern design.',
     skills: ['Web Development', 'Webflow'],
     images: [
       {
@@ -46,7 +50,6 @@ export const projects: ProjectType[] = [
         alt: 'MNTN website image 5',
       },
     ],
-    slug: 'mntn',
     description: `A responsive landing page built in Webflow, leveraging the Lumos framework for a flexible, modern design. Includes customised components and tailored styling to enhance user experience across all devices, with attention to clean layouts and seamless functionality.`,
     bgColor: '#0b1d26',
     textColor: 'var(--color--light)',
@@ -54,6 +57,9 @@ export const projects: ProjectType[] = [
   },
   {
     title: 'Portfolio (2023)',
+    slug: 'portfolio23',
+    metaDescription:
+      'A MacOS-inspired React portfolio with draggable windows and interactive components. This project emphasises playful UI design and personal creativity.',
     skills: ['React', 'Web Development', 'Web Design'],
     images: [
       {
@@ -77,7 +83,7 @@ export const projects: ProjectType[] = [
         alt: 'Portfolio image 4',
       },
     ],
-    slug: 'portfolio23',
+
     description: `Created a MacOS-inspired portfolio using React, featuring draggable windows and clickable components for a playful desktop-like experience. Focused on interactivity and UI detail, this project showcased creativity and technical skill while highlighting a personal passion for immersive, engaging design.`,
     bgColor: '#000000',
     textColor: 'var( --color--light)',
@@ -85,6 +91,10 @@ export const projects: ProjectType[] = [
   },
   {
     title: 'jetia',
+    slug: 'jetia',
+    metaDescription:
+      'jetia is a fictional agency website built in a 3-day hackathon using React, featuring a clean, responsive layout and collaborative UX/UI design.',
+
     skills: ['React', 'Web Development'],
     images: [
       {
@@ -113,14 +123,16 @@ export const projects: ProjectType[] = [
         alt: 'jetia website image 5',
       },
     ],
-    slug: 'jetia',
-    description: `A responsive website for a fictional digital agency, created during a three-day hackathon. Built with React and designed in collaboration with UX/UI designers, the site showcases the agency’s made-up services, portfolio, and team. Focused on clean design, usability, and mobile responsiveness to reflect a polished, professional brand presence.`,
+    description: `A responsive website for a fictional digital agency, created during a three-day hackathon. Built with React and designed in collaboration with UX/UI designers, the site showcases the agency’s services, portfolio, and team. Focused on clean design, usability, and mobile responsiveness to reflect a polished, professional brand presence.`,
     bgColor: '#df7496',
     textColor: 'var( --color--dark)',
     featured: true,
   },
   {
     title: 'PokéBattles',
+    slug: 'pokebattles',
+    metaDescription:
+      'A browser game built with Node.js and Express where users catch, collect, and battle Pokémon in a playful, dynamic interface.',
     skills: ['React', 'Web Development'],
     images: [
       {
@@ -149,8 +161,7 @@ export const projects: ProjectType[] = [
         alt: 'PokeBattles image 5',
       },
     ],
-    slug: 'pokebattles',
-    description: `A browser-based game inspired by Pokémon, built with Express and Node.js. Users can choose a starter Pokémon, view their collection, catch new ones, and battle opponents. The app features dynamic interactions and a playful interface designed to capture the feel of classic Pokémon gameplay.`,
+    description: `A browser-based game inspired by Pokémon, built with Express and Node.js. Users can choose a starter Pokémon, view their collection, catch new ones, and battle wild Pokémon. The app features dynamic interactions and a playful interface designed to capture the feel of classic Pokémon gameplay.`,
     bgColor: '#ffe030',
     textColor: 'var( --color--dark)',
     featured: true,

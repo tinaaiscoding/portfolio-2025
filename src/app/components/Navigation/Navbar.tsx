@@ -30,7 +30,18 @@ export const NavbarDesktop = () => {
               </li>
               <li className='navbar_item_wrap flex items-center justify-items-start'>
                 <Dot className='navbar_item_svg' />
-                <Link href='#contact'>Contact</Link>
+                <Link
+                  href='#contact'
+                  scroll={false}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .querySelector('#contact')
+                      ?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </nav>
@@ -80,7 +91,16 @@ export const NavbarMobile = () => {
                 </Link>
               </li>
               <li className='navbar_item_wrap is-mobile' onClick={close}>
-                <Link href='#contact'>
+                <Link
+                  href='#contact'
+                  scroll={false}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document
+                      .querySelector('#contact')
+                      ?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   <div className='navbar_item_layout is-mobile u-container flex items-center justify-items-start'>
                     <Dot className='navbar_item_svg is-mobile' />
                     <p className='u-text-style-large'>Contact</p>
