@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import TopParallaxSection from '@/app/components/TopParallaxSection/TopParallaxSection';
-import { runHomeHeroAnimation } from '@/app/utils/animation/home';
+import { homeHeroAnimation } from '@/app/utils/animation/home';
 
 import SectionSpacing from '../../../SectionSpacing/SectionSpacing';
 import './HomeHero.css';
@@ -17,12 +17,13 @@ export default function HomeHero() {
   useEffect(() => {
     if (!lenis || !heroRef.current) return;
 
-    const cleanup = runHomeHeroAnimation(heroRef.current, lenis);
+    const animationCleanup = homeHeroAnimation(heroRef.current, lenis);
 
     return () => {
-      cleanup?.();
+      animationCleanup?.();
     };
   }, [lenis]);
+  
   return (
     <TopParallaxSection>
       <section

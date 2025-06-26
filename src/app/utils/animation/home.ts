@@ -15,27 +15,39 @@ type BoldTextTimelines = {
     mouseleave: (e: Event) => void;
   };
 };
+let boldTextTimelines: BoldTextTimelines[] = [];
 
-export function runHomeHeroAnimation(section: HTMLElement, lenis?: any) {
+export function homeHeroAnimation(section: HTMLElement, lenis?: any) {
   const heading = section.querySelector<HTMLElement>('.home_hero_heading_text');
-  const heroBoldTexts = section.querySelectorAll<HTMLElement>(
-    '.home_hero_heading_bold',
-  );
-  const heroImages = section.querySelectorAll<HTMLElement>(
-    '.home_hero_image_wrap',
-  );
-
-  if (!heading || !heroBoldTexts.length || !heroImages.length) return;
+  if (!heading) return;
 
   const headingWords = splitHeadingWords(heading);
-  const boldTextTimelines = createBoldTextTimelines(
-    heroBoldTexts,
-    heroImages,
-    heading,
-  );
 
-  const attachListeners = () => attachBoldTextListeners(boldTextTimelines);
-  const detachListeners = () => detachBoldTextListeners(boldTextTimelines);
+  const attachListeners = () => {
+    if (boldTextTimelines.length) return;
+    const currentBoldTexts = section.querySelectorAll<HTMLElement>(
+      '.home_hero_heading_bold',
+    );
+    const currentImages = section.querySelectorAll<HTMLElement>(
+      '.home_hero_image_wrap',
+    );
+    const currentHeading = section.querySelector<HTMLElement>(
+      '.home_hero_heading_text',
+    );
+    if (!currentHeading || !currentBoldTexts.length || !currentBoldTexts.length)
+      return;
+
+    boldTextTimelines = createBoldTextTimelines(
+      currentBoldTexts,
+      currentImages,
+      currentHeading,
+    );
+    attachBoldTextListeners(boldTextTimelines);
+  };
+  const detachListeners = () => {
+    detachBoldTextListeners(boldTextTimelines);
+    boldTextTimelines = [];
+  };
 
   const resizeCleanup = debouncedResizeListener(() => {
     if (isMobileContainer(section)) {
@@ -45,19 +57,31 @@ export function runHomeHeroAnimation(section: HTMLElement, lenis?: any) {
     }
   });
 
+  const onIntroTLComplete = () => {
+    lenis?.start?.();
+    if (!isMobileContainer(section)) {
+      attachListeners();
+    }
+  };
+
   if (window.pageYOffset === 0) {
     lenis?.stop?.();
-    const introTL = createIntroTimeline(headingWords, section, () => {
-      lenis?.start?.();
-      if (!isMobileContainer(section)) attachListeners();
-    });
+    gsap.set(section, { visibility: 'visible' });
+
+    const introTL = createIntroTimeline(
+      headingWords,
+      section,
+      onIntroTLComplete,
+    );
     setTimeout(() => introTL.play(), 100);
   } else {
     gsap.set(section, { visibility: 'visible' });
   }
 
   createOutroTimeline(headingWords, heading, detachListeners);
-  setupScrollTriggerReentry(section, attachListeners);
+  setupScrollTriggerReentry(section, () => {
+    attachListeners();
+  });
 
   return () => {
     resizeCleanup();
@@ -115,8 +139,12 @@ function createBoldTextTimelines(
       '<',
     );
 
-    const mouseenterHandler = () => boldTextTL.timeScale(1).play();
-    const mouseleaveHandler = () => boldTextTL.timeScale(2).reverse();
+    const mouseenterHandler = () => {
+      return boldTextTL.timeScale(1).play();
+    };
+    const mouseleaveHandler = () => {
+      return boldTextTL.timeScale(2).reverse();
+    };
 
     timelines.push({
       boldText,
@@ -150,7 +178,11 @@ function createIntroTimeline(
   section: HTMLElement,
   onComplete: () => void,
 ): gsap.core.Timeline {
-  const tl = gsap.timeline({ paused: true, defaults: { ease: 'power2.out' } });
+  const tl = gsap.timeline({
+    paused: true,
+    defaults: { ease: 'power2.out' },
+    onComplete,
+  });
   tl.fromTo(
     words,
     { opacity: 0, y: '2rem' },
@@ -159,10 +191,9 @@ function createIntroTimeline(
       y: '0em',
       duration: 1.5,
       stagger: { each: 0.05 },
-      onComplete,
     },
   );
-  gsap.set(section, { visibility: 'visible' });
+
   return tl;
 }
 
