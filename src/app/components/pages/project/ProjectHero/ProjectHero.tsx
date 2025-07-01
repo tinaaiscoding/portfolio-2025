@@ -1,6 +1,6 @@
 'use client';
 
-import { useParams } from 'next/navigation';
+import { useParams, notFound } from 'next/navigation';
 
 import HorizontalImageScroll from '@/app/components/HorizontalImageScroll/HorizontalImageScroll';
 import SectionSpacing from '@/app/components/SectionSpacing/SectionSpacing';
@@ -14,7 +14,7 @@ export default function ProjectHero() {
 
   const project = projects.find((p) => p.slug === slug);
 
-  if (!project) return <p>404</p>;
+  if (!project) return notFound();
 
   return (
     <section className='project_hero_wrap'>
