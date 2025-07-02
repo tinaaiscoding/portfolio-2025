@@ -23,7 +23,7 @@ export default function HomeHero() {
       animationCleanup?.();
     };
   }, [lenis]);
-  
+
   return (
     <TopParallaxSection>
       <section
@@ -61,7 +61,7 @@ export default function HomeHero() {
           <div className='home_hero_image_wrap'>
             <div className='home_hero_image is-1'>
               <Image
-                src='/images/hero-1.jpeg'
+                src='/images/hero-beautiful-3.png'
                 alt='Tina travelling'
                 fill
                 sizes='400px 3x'
@@ -69,7 +69,7 @@ export default function HomeHero() {
             </div>
             <div className='home_hero_image is-2'>
               <Image
-                src='/images/hero-2.jpeg'
+                src='/images/hero-beautiful-2.png'
                 alt='Maz and Tina'
                 fill
                 sizes='400px 3x'
@@ -77,7 +77,7 @@ export default function HomeHero() {
             </div>
             <div className='home_hero_image is-3'>
               <Image
-                src='/images/hero-3.jpg'
+                src='/images/hero-beautiful-1.png'
                 alt="Tina's hobby"
                 fill
                 sizes='400px 3x'
@@ -86,27 +86,33 @@ export default function HomeHero() {
           </div>
           <div className='home_hero_image_wrap'>
             <div className='home_hero_image is-1'>
-              <Image
-                src='/images/hero-1.jpeg'
-                alt='Tina travelling'
-                fill
-                sizes='400px 3x'
+              <video
+                src='/videos/hero-engaging-2.mp4'
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload='auto'
               />
             </div>
             <div className='home_hero_image is-2'>
-              <Image
-                src='/images/hero-2.jpeg'
-                alt='Maz and Tina'
-                fill
-                sizes='400px 3x'
+              <video
+                src='/videos/hero-engaging-1.mp4'
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload='auto'
               />
             </div>
             <div className='home_hero_image is-3'>
-              <Image
-                src='/images/hero-3.jpg'
-                alt="Tina's hobby"
-                fill
-                sizes='400px 3x'
+              <video
+                src='/videos/hero-engaging-3.mp4'
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload='auto'
               />
             </div>
           </div>
