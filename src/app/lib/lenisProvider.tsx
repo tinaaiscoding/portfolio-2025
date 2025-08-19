@@ -3,8 +3,8 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import 'lenis/dist/lenis.css';
-import { ReactLenis } from 'lenis/react';
-import { FC, useEffect, useRef } from 'react';
+import { ReactLenis, useLenis } from 'lenis/react';
+import { FC, useEffect } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,12 +13,9 @@ type LenisScrollProviderProps = {
 };
 
 const LenisScrollProvider: FC<LenisScrollProviderProps> = ({ children }) => {
-  const lenisRef = useRef(null);
+  const lenisInstance = useLenis();
 
   useEffect(() => {
-    if (!lenisRef.current) return;
-    const lenisInstance = lenisRef.current?.lenis;
-
     if (lenisInstance) {
       lenisInstance.on('scroll', ScrollTrigger.update);
 
@@ -32,11 +29,10 @@ const LenisScrollProvider: FC<LenisScrollProviderProps> = ({ children }) => {
         lenisInstance.off('scroll', ScrollTrigger.update);
       };
     }
-  }, []);
+  }, [lenisInstance]);
 
   return (
     <ReactLenis
-      ref={lenisRef}
       root
       options={{
         lerp: 0.1,
