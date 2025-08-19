@@ -1,10 +1,12 @@
 import type { NextConfig } from 'next';
+import type { RuleSetRule } from 'webpack';
 
 const nextConfig: NextConfig = {
   webpack(config) {
     // Grab the existing rule that handles SVG imports
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.('.svg'),
+    const fileLoaderRule = config.module.rules.find(
+      (rule: RuleSetRule): rule is RuleSetRule & { test: RegExp } =>
+        rule.test instanceof RegExp && rule.test.test('.svg'),
     );
 
     config.module.rules.push(
