@@ -73,9 +73,9 @@ export const runSplit = (
   aboutInfoSection: HTMLElement,
 ) => {
   const paragraph = aboutInfoSection.querySelector('p');
-  if (!paragraph || !splitRef) return;
+  if (!paragraph) return;
 
-  splitRef.revert();
+  splitRef?.revert();
   splitRef = new SplitType(paragraph, {
     types: 'lines',
     lineClass: 'about_hero_heading_line',

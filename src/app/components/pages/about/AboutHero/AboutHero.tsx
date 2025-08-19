@@ -24,7 +24,7 @@ export default function AboutHero() {
     const section = aboutSectionRef.current;
     const aboutInfoSection = aboutInfoRef.current;
     const currentSplitRef = splitRef.current
-    if (!section || !aboutInfoSection || !currentSplitRef) return;
+    if (!section || !aboutInfoSection) return;
 
     const initAnimations = () => {
       runSplit(currentSplitRef, aboutInfoSection);
@@ -46,7 +46,7 @@ export default function AboutHero() {
 
     return () => {
       resizeCleanup();
-      currentSplitRef.revert();
+      currentSplitRef?.revert();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
