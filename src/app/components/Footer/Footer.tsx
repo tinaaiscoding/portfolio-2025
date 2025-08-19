@@ -18,7 +18,7 @@ export default function Footer() {
               <div>
                 <p className='u-text-style-large'>
                   Interested in collaborating on a project, have questions, or
-                  just want to say hello? I'd love to hear from you!
+                  just want to say hello? I&apos;d love to hear from you!
                 </p>
               </div>
               <div>

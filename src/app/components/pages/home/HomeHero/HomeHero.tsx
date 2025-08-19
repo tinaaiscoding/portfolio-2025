@@ -119,7 +119,7 @@ export default function HomeHero() {
 
           <div className='home_hero_heading_wrap'>
             <p className='home_hero_heading_text flow-root text-center text-balance'>
-              Hi, I'm <strong className='home_hero_heading_bold'>Tina</strong> —
+              Hi, I&apos;m <strong className='home_hero_heading_bold'>Tina</strong> —
               creative web developer crafting{' '}
               <strong className='home_hero_heading_bold'>beautiful</strong> and{' '}
               <strong className='home_hero_heading_bold'>engaging</strong>{' '}

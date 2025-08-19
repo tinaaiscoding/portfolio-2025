@@ -3,8 +3,6 @@
 import { useEffect, useState } from 'react';
 
 export default function GridOverlay() {
-  if (process.env.NODE_ENV !== 'development') return null;
-
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

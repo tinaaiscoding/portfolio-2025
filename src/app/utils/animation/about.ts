@@ -1,4 +1,3 @@
-import { RefObject } from 'react';
 import SplitType from 'split-type';
 
 import { ScrollTrigger, gsap } from '@/app/lib/gsap';
@@ -70,14 +69,14 @@ export const headingScrollAnimation = (
 };
 
 export const runSplit = (
-  splitRef: RefObject<SplitType | null>,
+  splitRef: SplitType | null,
   aboutInfoSection: HTMLElement,
 ) => {
   const paragraph = aboutInfoSection.querySelector('p');
-  if (!paragraph) return;
+  if (!paragraph || !splitRef) return;
 
-  splitRef.current?.revert();
-  splitRef.current = new SplitType(paragraph, {
+  splitRef.revert();
+  splitRef = new SplitType(paragraph, {
     types: 'lines',
     lineClass: 'about_hero_heading_line',
   });

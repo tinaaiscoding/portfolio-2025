@@ -23,10 +23,11 @@ export default function AboutHero() {
   useEffect(() => {
     const section = aboutSectionRef.current;
     const aboutInfoSection = aboutInfoRef.current;
-    if (!section || !aboutInfoSection) return;
+    const currentSplitRef = splitRef.current
+    if (!section || !aboutInfoSection || !currentSplitRef) return;
 
     const initAnimations = () => {
-      runSplit(splitRef, aboutInfoSection);
+      runSplit(currentSplitRef, aboutInfoSection);
       introAnimation(section, aboutInfoSection);
       headingScrollAnimation(section, aboutInfoSection);
     };
@@ -37,7 +38,7 @@ export default function AboutHero() {
     const resizeCleanup = debouncedResizeListener(() => {
       if (window.innerWidth !== windowWidthRef.current) {
         windowWidthRef.current = window.innerWidth;
-        runSplit(splitRef, aboutInfoSection);
+        runSplit(currentSplitRef, aboutInfoSection);
         headingScrollAnimation(section, aboutInfoSection);
         ScrollTrigger.refresh();
       }
@@ -45,7 +46,7 @@ export default function AboutHero() {
 
     return () => {
       resizeCleanup();
-      splitRef.current?.revert();
+      currentSplitRef.revert();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);

@@ -1,6 +1,7 @@
 // utils/animation/homeHeroAnimation.ts
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
 import SplitType from 'split-type';
 
 import { debouncedResizeListener, isMobileContainer } from '../helpers';
@@ -17,7 +18,7 @@ type BoldTextTimelines = {
 };
 let boldTextTimelines: BoldTextTimelines[] = [];
 
-export function homeHeroAnimation(section: HTMLElement, lenis?: any) {
+export function homeHeroAnimation(section: HTMLElement, lenis: Lenis) {
   const heading = section.querySelector<HTMLElement>('.home_hero_heading_text');
   if (!heading) return;
 
