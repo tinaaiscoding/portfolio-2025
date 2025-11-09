@@ -13,23 +13,23 @@ type LenisScrollProviderProps = {
 };
 
 const LenisScrollProvider: FC<LenisScrollProviderProps> = ({ children }) => {
-  const lenisInstance = useLenis();
+  const lenis = useLenis();
 
   useEffect(() => {
-    if (lenisInstance) {
-      lenisInstance.on('scroll', ScrollTrigger.update);
+    if (lenis) {
+      lenis.on('scroll', ScrollTrigger.update);
 
       const raf = (time: number) => {
-        lenisInstance.raf(time);
+        lenis.raf(time);
         requestAnimationFrame(raf);
       };
       requestAnimationFrame(raf);
 
       return () => {
-        lenisInstance.off('scroll', ScrollTrigger.update);
+        lenis.off('scroll', ScrollTrigger.update);
       };
     }
-  }, [lenisInstance]);
+  }, [lenis]);
 
   return (
     <ReactLenis

@@ -1,5 +1,4 @@
 export const techStack: string[] = [
-  'API',
   'CSS',
   'Express.js',
   'Git',
@@ -9,11 +8,10 @@ export const techStack: string[] = [
   'Javascript',
   'Next.js',
   'Node.js',
+  'PostgreSQL',
   'Python',
   'React',
-  'React Native',
   'Shopify/Liquid',
-  'SQL',
   'Tailwind',
   'Typescript',
   'Webflow/Lumos',
